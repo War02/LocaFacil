@@ -1,8 +1,106 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+    }
+
+    #car-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .car {
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        width: 300px;
+        text-align: center;
+    }
+
+        .car img {
+            max-width: 100%;
+        }
+
+        .car h2 {
+            margin: 10px 0;
+        }
+
+        .car p {
+            font-weight: bold;
+        }
+
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocaFacil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Carros à Venda</h1>
+    </header>
+    <section id="car-list">
+        <!-- Aqui serão exibidos os carros à venda -->
+    </section>
+    <script>
+        // Suponha que você tenha uma lista de carros em formato de array de objetos
+        const carros = [
+            {
+                marca: "Toyota",
+                modelo: "Corolla",
+                ano: 2022,
+                preco: 75000,
+                imagem: "corolla.jpg"
+            },
+            {
+                marca: "Honda",
+                modelo: "Civic",
+                ano: 2022,
+                preco: 70000,
+                imagem: "civic.jpg"
+            },
+            // Adicione mais carros aqui
+        ];
+
+        const carList = document.getElementById("car-list");
+
+        carros.forEach(carro => {
+            const carDiv = document.createElement("div");
+            carDiv.classList.add("car");
+
+            const carImage = document.createElement("img");
+            carImage.src = carro.imagem;
+
+            const carTitle = document.createElement("h2");
+            carTitle.textContent = `${carro.marca} ${carro.modelo} (${carro.ano})`;
+
+            const carPrice = document.createElement("p");
+            carPrice.textContent = `Preço: R$ ${carro.preco.toLocaleString()}`;
+
+            carDiv.appendChild(carImage);
+            carDiv.appendChild(carTitle);
+            carDiv.appendChild(carPrice);
+
+            carList.appendChild(carDiv);
+        });
+    </script>
+</body>
+
+</html>
+
