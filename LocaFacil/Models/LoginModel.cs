@@ -7,7 +7,7 @@ namespace LocaFacil.Models
         [Required(ErrorMessage = "Digite o nome do usuário")]
         public string Login { get; set; }
 
-        [Required(ErrorMessage = "Digite o nome do usuário")]
+        [Required(ErrorMessage = "Digite a senha do usuário")]
         public String Senha { get; set; }
     }
 }

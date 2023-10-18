@@ -26,6 +26,11 @@ namespace LocaFacil.Repositorio
         }
         public UsuarioModel Adicionar(UsuarioModel usuario)
         {
+            if (_context.Usuarios.Any(u => u.Login == usuario.Login && u.Id != usuario.Id))
+            {
+                throw new Exception("Já existe um usuário com o mesmo nome.");
+            }
+
             usuario.DataCadastro = DateTime.Now;
             usuario.SetSenhaHash();
             _context.Usuarios.Add(usuario);
@@ -39,6 +44,11 @@ namespace LocaFacil.Repositorio
 
             if (usuarioDB == null) throw new Exception("Houve um erro na atualização de usuário");
 
+            if (_context.Usuarios.Any(u => u.Login == usuario.Login && u.Id != usuario.Id))
+            {
+                throw new Exception("Já existe um usuário com o mesmo nome.");
+            }
+
             usuarioDB.Nome = usuario.Nome;
             usuarioDB.Email = usuario.Email;
             usuarioDB.Login = usuario.Login;
@@ -50,6 +60,7 @@ namespace LocaFacil.Repositorio
 
             return usuarioDB;
         }
+
         public UsuarioModel AlterarSenha(AlterarSenhaModel alterarSenhaModel)
         {
             UsuarioModel usuarioDB = BuscarPorId(alterarSenhaModel.Id);
