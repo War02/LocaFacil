@@ -1,106 +1,194 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-
-    header {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
-    }
-
-    #car-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .car {
-        border: 1px solid #ccc;
-        margin: 10px;
-        padding: 10px;
-        width: 300px;
-        text-align: center;
-    }
-
-        .car img {
-            max-width: 100%;
-        }
-
-        .car h2 {
-            margin: 10px 0;
-        }
-
-        .car p {
-            font-weight: bold;
-        }
-
-</style>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LocaFacil</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para o fundo da tela */
+        body {
+            background-color: #F5FFFA; /* Lavanda Blush */
+        }
+
+        /* Estilos para o layout dos cards */
+        .card {
+            width: 30%; /* Defina a largura desejada para os cards */
+            border: 1px solid #ccc;
+            margin: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+            /* Estilos para a imagem dentro dos cards */
+            .card img {
+                width: 100%;
+                height: auto;
+            }
+
+            /* Estilos para a descrição dentro dos cards */
+            .card .description {
+                padding: 10px;
+                text-align: center; /* Centraliza o conteúdo dentro do card */
+            }
+
+                /* Estilos para o elemento h3 dentro da descrição */
+                .card .description h3 {
+                    margin: 0; /* Remove a margem padrão do h3 para um visual mais limpo */
+                }
+
+        /* Estilos para o filtro */
+        .filter {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+            .filter input[type="text"] {
+                padding: 5px;
+                width: 200px;
+            }
+
+        /* Estilos para os elementos h3, h4 e h6 */
+        .card .description h3, .card .description h5 {
+            text-align: left;
+        }
+
+        .card .description h4 {
+            text-align: left; /* Centraliza */
+        }
+
+        .card .description h6 {
+            text-align: left;
+            color: gray; /* Define a cor do texto como cinza */
+        }
+
+        /* Estilos para a linha e a localização */
+        .card .line {
+            border-top: 1px solid #ccc; /* Linha horizontal */
+        }
+
+        .card .location {
+            text-align: center; /* Centraliza a localização */
+            padding: 10px;
+        }
+    </style>
+
 </head>
 <body>
-    <header>
-        <h1>Carros à Venda</h1>
-    </header>
-    <section id="car-list">
-        <!-- Aqui serão exibidos os carros à venda -->
-    </section>
-    <script>
-        // Suponha que você tenha uma lista de carros em formato de array de objetos
-        const carros = [
-            {
-                marca: "Toyota",
-                modelo: "Corolla",
-                ano: 2022,
-                preco: 75000,
-                imagem: "corolla.jpg"
-            },
-            {
-                marca: "Honda",
-                modelo: "Civic",
-                ano: 2022,
-                preco: 70000,
-                imagem: "civic.jpg"
-            },
-            // Adicione mais carros aqui
-        ];
+    <div class="filter">
+        <input type="text" placeholder="Pesquisar..." id="searchInput">
+    </div>
+    <div class="card">
+        <img src="~/audi.png" />
+        <div class="description">
+            <p>
+                <h3>Audi TT</h3>
+                <h6> Motor de Brasília Pegando fogo</h6>
+                <h4><strong>R$200.000,00</strong></h4>
+            </p>
+            <a href="pagina_de_destino.html">
+                <button>Ver Detalhes</button>
+            </a>
+            <p> </p>
+            <div class="line"></div> <!-- Linha horizontal -->
+            <div class="location">
+                Matão - SP
+            </div>
+        </div>
+    </div>
 
-        const carList = document.getElementById("car-list");
+    <div class="card">
+        <img src="~/audi.png" />
+        <div class="description">
+            <p>
+                <h3>Audi TT</h3>
+                <h6> Motor de Brasília Pegando fogo</h6>
+                <h4><strong>R$200.000,00</strong></h4>
+            </p>
+            <a href="pagina_de_destino.html">
+                <button>Ver Detalhes</button>
+            </a>
+            <p> </p>
+            <div class="line"></div> <!-- Linha horizontal -->
+            <div class="location">
+                Matão - SP
+            </div>
+        </div>
+    </div>
 
-        carros.forEach(carro => {
-            const carDiv = document.createElement("div");
-            carDiv.classList.add("car");
+    <div class="card">
+        <img src="~/audi.png" />
+        <div class="description">
+            <p>
+                <h3>Audi TT</h3>
+                <h6> Motor de Brasília Pegando fogo</h6>
+                <h4><strong>R$200.000,00</strong></h4>
+            </p>
+            <a href="pagina_de_destino.html">
+                <button>Ver Detalhes</button>
+            </a>
+            <p> </p>
+            <div class="line"></div> <!-- Linha horizontal -->
+            <div class="location">
+                Matão - SP
+            </div>
+        </div>
+    </div>
 
-            const carImage = document.createElement("img");
-            carImage.src = carro.imagem;
+    <div class="card">
+        <img src="~/audi.png" />
+        <div class="description">
+            <p>
+                <h3>Audi TT</h3>
+                <h6> Motor de Brasília Pegando fogo</h6>
+                <h4><strong>R$200.000,00</strong></h4>
+            </p>
+            <a href="pagina_de_destino.html">
+                <button>Ver Detalhes</button>
+            </a>
+            <p> </p>
+            <div class="line"></div> <!-- Linha horizontal -->
+            <div class="location">
+                Matão - SP
+            </div>
+        </div>
+    </div>
 
-            const carTitle = document.createElement("h2");
-            carTitle.textContent = `${carro.marca} ${carro.modelo} (${carro.ano})`;
+    <div class="card">
+        <img src="~/audi.png" />
+        <div class="description">
+            <p>
+                <h3>Audi TT</h3>
+                <h6> Motor de Brasília Pegando fogo</h6>
+                <h4><strong>R$200.000,00</strong></h4>
+            </p>
+            <a href="pagina_de_destino.html">
+                <button>Ver Detalhes</button>
+            </a>
+            <p> </p>
+            <div class="line"></div> <!-- Linha horizontal -->
+            <div class="location">
+                Matão - SP
+            </div>
+        </div>
+    </div>
 
-            const carPrice = document.createElement("p");
-            carPrice.textContent = `Preço: R$ ${carro.preco.toLocaleString()}`;
-
-            carDiv.appendChild(carImage);
-            carDiv.appendChild(carTitle);
-            carDiv.appendChild(carPrice);
-
-            carList.appendChild(carDiv);
-        });
-    </script>
+    <div class="card">
+        <img src="~/audi.png" />
+        <div class="description">
+            <p>
+                <h3>Audi TT</h3>
+                <h6> Motor de Brasília Pegando fogo</h6>
+                <h4><strong>R$200.000,00</strong></h4>
+            </p>
+            <a href="pagina_de_destino.html">
+                <button>Ver Detalhes</button>
+            </a>
+            <p> </p>
+            <div class="line"></div> <!-- Linha horizontal -->
+            <div class="location">
+                Matão - SP
+            </div>
+        </div>
+    </div>
 </body>
-
 </html>
-

@@ -33,6 +33,7 @@
         <label for="nome" class="form-label">Perfil</label>
         <select asp-for="Perfil" classs="form-control">
             <option value=""> Selecione </option>
+            <option value="@PerfilEnum.Admin"> Admin </option>
             <option value="@PerfilEnum.Padrão"> Padrão </option>
             @Html.ValidationMessageFor(x => x.Perfil)
 
