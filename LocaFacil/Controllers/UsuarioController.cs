@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LocaFacil.Controllers
 {
-        [PaginaRestritaAdmin]
+        
         public class UsuarioController : Controller
         {
             private readonly IUsuarioRepositorio _usuarioRepositorio;

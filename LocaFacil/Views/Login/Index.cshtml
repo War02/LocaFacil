@@ -1,10 +1,37 @@
 ﻿@model LoginModel
 @{
-    //Layout = "_LayoutDeslogada";
-    ViewData["Tittle"] = "Login";
+    Layout = "_LayoutDeslogada";
+    ViewData["Title"] = "Login";
 }
+<style>
+    #form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-<form asp-controller="Login" asp-action="Entrar" method="post">
+    /* Estilos adicionais, se necessário */
+    #img {
+        text-align: center;
+    }
+</style>
+
+<div id="img">
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["MensagemErro"]
+        </div>
+    }
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-sucess">
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+</div>
+<form id="form" action="/Login/entrar" method="post">
     <div class="mb-3">
         <label for="login" class="form-label">Login</label>
         <input type="text" asp-for="Login" class="form-control" id="login">
@@ -16,5 +43,33 @@
         @Html.ValidationMessageFor(x => x.Senha)
     </div>
 
-    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-</form>
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+        <div class="col d-flex justify-content-center">
+            <!-- Checkbox -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                <label class="form-check-label" for="form2Example31"> Remember me </label>
+            </div>
+        </div>
+
+        <div class="col">
+            <!-- Simple link -->
+            <p class="mb-4 text-sm-center mx-auto">
+                Esqueceu sua senha ?
+                <a asp-action="Index" asp-controller="AlterarSenha" class="text-primary text-gradient font-weight-bold">
+                    Redefinir Senha
+                </a>
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Submit button -->
+    <button id="button" type="submit" class="btn btn-secondary form-control" style="background-color: #2F3538;">Continuar</button>
+
+    <!-- Register buttons -->
+     <div class="text-center">
+        <p>Não possui uma conta ? <a asp-action="Criar" asp-controller="Usuario">Cadastre-se</a></p>
+    </div> 
+</form> 

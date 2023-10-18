@@ -50,7 +50,23 @@ namespace LocaFacil.Repositorio
 
             return usuarioDB;
         }
+        public UsuarioModel AlterarSenha(AlterarSenhaModel alterarSenhaModel)
+        {
+            UsuarioModel usuarioDB = BuscarPorId(alterarSenhaModel.Id);
 
+            if (usuarioDB == null) throw new Exception("Houve um erro, usuário não encontrado");
+
+            if (!usuarioDB.SenhaValida(alterarSenhaModel.SenhaAtual)) throw new Exception("Senha Atual não confere");
+
+            if (usuarioDB.SenhaValida(alterarSenhaModel.NovaSenha)) throw new Exception("Nova senha deve ser diferente da senha atual");
+
+            usuarioDB.SetNovaSenha(alterarSenhaModel.NovaSenha);
+            _context.SaveChanges();
+
+            usuarioDB.DataAtualizacao = DateTime.Now;
+
+            return usuarioDB;
+        }
         public bool Apagar(int id)
         {
             UsuarioModel usuarioDB = BuscarPorId(id);
