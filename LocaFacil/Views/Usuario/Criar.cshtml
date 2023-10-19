@@ -1,15 +1,19 @@
 ﻿@using LocaFacil.Enums;
 @model UsuarioModel
 @{
-    Layout = "_LayoutDeslogada";
     ViewData["Title"] = "Criar Usuário";
 }
+<style>
+    .form {
+        display: none;
+    }
 
+</style>
 <div class="text-center">
-    <h1 class="display-4">Cadastrar Usuário</h1>
+    <h1 class="display-4">Cadastrar Aluno</h1>
 </div>
 
-<form asp-controller="Login" asp-action="Index" method="post">
+<form asp-controller="Usuario" asp-action="Criar" method="post">
 
     <div class="form-group">
         <label for="nome" class="form-label">Nome</label>
@@ -29,16 +33,14 @@
         @Html.ValidationMessageFor(x => x.Login)
     </div>
 
-    <div class="form-group">
+    <div class="form">
         <label for="nome" class="form-label">Perfil</label>
         <select asp-for="Perfil" classs="form-control">
             <option value=""> Selecione </option>
-            <option value="@PerfilEnum.Admin"> Admin </option>
-            <option value="@PerfilEnum.Padrão"> Padrão </option>
+            <option value="@PerfilEnum.Padrão" selected></option>
             @Html.ValidationMessageFor(x => x.Perfil)
-
         </select>
-    </div> 
+    </div>
 
     <div class="form-group">
         <label for="nome" class="form-label">Senha</label>
@@ -46,6 +48,6 @@
         @Html.ValidationMessageFor(x => x.Senha)
     </div>
 
-    <button type="submit" class="btn btn-primary btn-block">Criar</button>
+    <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
     <a class="btn btn-secundary btn-block" asp-action="Index" asp-controller="Login" role="button">Voltar</a>
 </form>

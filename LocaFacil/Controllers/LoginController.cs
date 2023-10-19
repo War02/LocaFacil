@@ -49,7 +49,7 @@ namespace WebApplication1.Controllers
                         if (usuario.SenhaValida(loginModel.Senha))
                         {
                             _sessao.CriarSessaoUsuario(usuario);
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction("Index", "HomeLogado");
 
                         }
                         TempData["MensagemErro"] = "Login e/ou Senha do usuário invalida(o)";

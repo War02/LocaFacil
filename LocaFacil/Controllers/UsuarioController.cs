@@ -66,15 +66,15 @@ namespace LocaFacil.Controllers
                         usuario = _usuarioRepositorio.Adicionar(usuario);
 
                         TempData["MensagemDeSucesso"] = "Usuário Cadastrado com sucesso";
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", "Login");
                     }
 
                     return View(usuario);
                 }
                 catch (Exception erro)
                 {
-                    TempData["MensagemErro"] = $"Ops, não conseguimos cadastrar seu contato\nDetalhe do erro: {erro.Message}";
-                    return RedirectToAction("Index");
+                    TempData["MensagemErro"] = $"Ops, não conseguimos cadastrar seu contato. Detalhe do erro: {erro.Message}";
+                    return RedirectToAction("Index", "Login");
                 }
             }
             [HttpPost]
