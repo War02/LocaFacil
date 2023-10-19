@@ -3,6 +3,7 @@
     Layout = "_LayoutDeslogada";
     ViewData["Title"] = "Login";
 }
+
 <style>
     #form {
         position: absolute;
@@ -31,7 +32,7 @@
         </div>
     }
 </div>
-<form id="form" action="/Login/entrar" method="post">
+@* <form id="form" action="/Login/entrar" method="post">
     <div class="mb-3">
         <label for="login" class="form-label">Usuário</label>
         <input type="text" asp-for="Login" class="form-control" id="login">
@@ -73,5 +74,29 @@
     <!-- Register buttons -->
      <div class="text-center">
         <p>Não possui uma conta ? <a asp-action="Criar" asp-controller="Usuario">Cadastre-se</a></p>
-    </div> 
-</form> 
+    </div>  
+</form>*@
+<div>
+    <form id="form" action="/Login/entrar" method="post">
+        <div class="mb-3">
+            <label for="login" class="form-label">Login</label>
+            <input type="text" asp-for="Login" class="form-control" id="login">
+            @Html.ValidationMessageFor(x => x.Login)
+        </div>
+        <div class="mb-3">
+            <label for="senha" class="form-label">Senha</label>
+            <input type="password" asp-for="Senha" class="form-control" id="senha">
+            @Html.ValidationMessageFor(x => x.Senha)
+        </div>
+        <p class="mb-4 text-sm-center mx-auto">
+            Esqueceu sua senha ?
+            <a asp-action="RedefinirSenha" asp-controller="Login" class="text-primary text-gradient font-weight-bold">
+                Redefinir Senha
+            </a>
+        </p>
+        <button id="button" type="submit" class="btn btn-secondary form-control" style="background-color: #2F3538;">Continuar</button>
+        <div class="text-center">
+            <p>Não possui uma conta ? <a asp-action="Criar" asp-controller="Usuario">Cadastre-se</a></p>
+        </div>
+    </form>
+</div>

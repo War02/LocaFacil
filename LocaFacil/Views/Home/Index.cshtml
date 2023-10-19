@@ -5,31 +5,46 @@
 <html>
 <head>
     <style>
-        /* Estilo padrão dos links de navegação */
-        .navbar-nav .nav-link {
-            color: #000; /* Cor padrão do texto */
-            font-weight: normal; /* Peso da fonte normal (não negrito) */
-            transition: color 0.3s, font-weight 0.3s; /* Transição suave para cor e peso da fonte */
+        header {
+            background-color: #D3D3D3; /* Cor de fundo do header */
         }
 
-            /* Estilize os links quando o mouse está sobre eles */
+        .navbar-nav .nav-link {
+            color: blue; /* Cor do texto no header */
+            transition: color 0.3s; /* Transição suave de cor ao passar o mouse */
+        }
+
             .navbar-nav .nav-link:hover {
-                color: #ff0000; /* Cor vermelha ao passar o mouse */
-                font-weight: bold; /* Texto em negrito ao passar o mouse */
+                color: gray; /* Cor do texto no header quando o mouse está sobre ele */
             }
 
         /* Estilos para o fundo da tela */
         body {
-            background-color: #F5FFFA; /* Lavanda Blush */
+            background-color: white; /* Lavanda Blush */
         }
+
+        .btn-primary {
+            background-color: white; /* Define o fundo do botão como branco */
+            color: blue; /* Define a cor do texto do botão como azul */
+            border: 1px solid blue; /* Adiciona uma borda azul de 1px ao botão */
+            transition: background-color 0.3s, color 0.3s, border 0.3s; /* Adiciona transições suaves para as mudanças de cor e borda */
+            margin-left: 500px;
+        }
+
+            .btn-primary:hover {
+                background-color: blue; /* Define a cor de fundo do botão quando o mouse está sobre ele como azul */
+                color: white; /* Define a cor do texto como branco quando o mouse está sobre o botão */
+                border: 1px solid white; /* Define a borda como branca quando o mouse está sobre o botão */
+            }
 
         /* Estilos para o layout dos cards */
         .card {
             width: 30%; /* Defina a largura desejada para os cards */
-            border: 1px solid #ccc;
+            border: 1px solid black;
             margin: 10px;
             display: inline-block;
             vertical-align: top;
+            background-color: white;
         }
 
             /* Estilos para a imagem dentro dos cards */
@@ -49,10 +64,12 @@
                     margin: 0; /* Remove a margem padrão do h3 para um visual mais limpo */
                 }
 
-        /* Estilos para o filtro */
-        .filter {
-            text-align: center;
-            margin: 20px 0;
+        .filter-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
         }
 
             .filter input[type="text"] {
@@ -60,13 +77,20 @@
                 width: 200px;
             }
 
+        .card img {
+            width: 100%; /* Garante que a imagem ocupe toda a largura do card */
+            height: 230px; /* Mantém a proporção da imagem */
+        }
+
         /* Estilos para os elementos h3, h4 e h6 */
         .card .description h3, .card .description h5 {
             text-align: left;
+            color:blue;
         }
 
         .card .description h4 {
             text-align: left; /* Centraliza */
+            
         }
 
         .card .description h6 {
@@ -83,6 +107,7 @@
             text-align: center; /* Centraliza a localização */
             padding: 10px;
         }
+
     </style>
 
 </head>
@@ -96,37 +121,31 @@
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
+                    <li>
+                        <a class="nav-link text-dark" asp-area="Index" asp-controller="Home" asp-action="">Loca<strong style="color: blue;">Facil</strong></a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                    @* @if (Model.Perfil == LocaFacil.Enums.PerfilEnum.Admin)
-                    {
-                    <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Usuários</a>
-                    </li>
-                    } *@
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Sair">Sair</a>
                     </li>
                 </ul>
                 <a class="btn btn-primary" asp-action="index" asp-controller="Login">Entrar</a>
             </div>
         </nav>
     </header>
-
-    <div class="filter">
-        <input type="text" placeholder="Pesquisar..." id="searchInput">
+    <hr class="line"></hr>
+    <div class="filter-container">
+        <div class="filter">
+            <input type="text" placeholder="Pesquisar..." id="searchInput">
+        </div>
     </div>
+<div class="content-container">
     <div class="card">
         <img src="~/audi.png" />
         <div class="description">
             <p>
                 <h3>Audi TT</h3>
                 <h6> Motor de Brasília Pegando fogo</h6>
-                <h4><strong>R$200.000,00</strong></h4>
+                    <h4><strong>R$950,00</strong> p/ dia</h4>
             </p>
             <a href="pagina_de_destino.html">
                 <button>Ver Detalhes</button>
@@ -144,8 +163,8 @@
         <div class="description">
             <p>
                 <h3>Fiat Mobi</h3>
-                <h6> Motor de Brasília Pegando fogo</h6>
-                <h4><strong>R$200.000,00</strong></h4>
+                <h6> O sonho desse aqui era ser um uno</h6>
+                <h4><strong>R$200,00</strong> p/ dia</h4>
             </p>
             <a href="pagina_de_destino.html">
                 <button>Ver Detalhes</button>
@@ -163,8 +182,8 @@
         <div class="description">
             <p>
                 <h3>Hyundai HB20</h3>
-                <h6> Motor de Brasília Pegando fogo</h6>
-                <h4><strong>R$200.000,00</strong></h4>
+                <h6> Se você faz odonto, esse já é seu</h6>
+                    <h4><strong>R$200,00</strong> p/ dia</h4>
             </p>
             <a href="pagina_de_destino.html">
                 <button>Ver Detalhes</button>
@@ -182,8 +201,8 @@
         <div class="description">
             <p>
                 <h3>JEEP Renegade</h3>
-                <h6> Motor de Brasília Pegando fogo</h6>
-                <h4><strong>R$200.000,00</strong></h4>
+                <h6> Atola até no asfalto </h6>
+                    <h4><strong>R$230,00</strong> p/ dia</h4>
             </p>
             <a href="pagina_de_destino.html">
                 <button>Ver Detalhes</button>
@@ -201,8 +220,8 @@
         <div class="description">
             <p>
                 <h3>Peugeot 308</h3>
-                <h6> Motor de Brasília Pegando fogo</h6>
-                <h4><strong>R$200.000,00</strong></h4>
+                <h6> Se bater motor, não é culpa nossa</h6>
+                    <h4><strong>R$300,00</strong> p/ dia</h4>
             </p>
             <a href="pagina_de_destino.html">
                 <button>Ver Detalhes</button>
@@ -220,8 +239,8 @@
         <div class="description">
             <p>
                 <h3>Volkswagen Gol</h3>
-                <h6> Motor de Brasília Pegando fogo</h6>
-                <h4><strong>R$200.000,00</strong></h4>
+                <h6> Não tem muito o que falar, é só um gol</h6>
+                    <h4><strong>R$160,00</strong> p/ dia</h4>
             </p>
             <a href="pagina_de_destino.html">
                 <button>Ver Detalhes</button>
@@ -233,5 +252,6 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
