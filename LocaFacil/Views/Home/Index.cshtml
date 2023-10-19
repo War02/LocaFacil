@@ -64,18 +64,17 @@
                     margin: 0; /* Remove a margem padrão do h3 para um visual mais limpo */
                 }
 
-        .filter-container {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
+        .form-group {
+            top: 30px; /* Ajuste este valor para controlar a altura da subida */
         }
-
-            .filter input[type="text"] {
-                padding: 5px;
-                width: 200px;
-            }
+        #buscar {
+            width: 300px;
+            height: 50px;
+            top: 10px;
+            margin-left:385px;
+            align-content: center;
+            cursor: pointer;
+        }
 
         .card img {
             width: 100%; /* Garante que a imagem ocupe toda a largura do card */
@@ -133,9 +132,12 @@
         </nav>
     </header>
     <hr class="line"></hr>
-    <div class="filter-container">
-        <div class="filter">
-            <input type="text" placeholder="Pesquisar..." id="searchInput">
+    <div class="col-md-8">
+        <div class="input-group mb-3" id="buscar">
+            <input type="text" class="form-control" placeholder="Procure seu carro" aria-label="Campo de busca" aria-describedby="icone-lupa">
+            <span class="input-group-text" id="icone-lupa">
+                <ion-icon name="search-outline"></ion-icon>
+            </span>
         </div>
     </div>
 <div class="content-container">
