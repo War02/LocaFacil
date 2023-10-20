@@ -2,6 +2,40 @@
 @{
     ViewData["Title"] = "Usuários";
 }
+<style>
+    .custom-margin-right {
+        margin-left: 140px; /* Ajuste o valor da margem conforme necessário */
+    }
+
+    .d-grid {
+        margin-left: 265px; /* Ajuste o valor da margem conforme necessário */
+    }
+    /* Estilos para a tabela */
+    #table-usuarios {
+        width: 80%; /* Aumenta a largura da tabela */
+        margin: 20px auto;
+        border-collapse: collapse; /* Colapsa as bordas da tabela */
+    }
+
+    /* Estilos para a mensagem de "Nenhum Usuário Encontrado" */
+    .no-users {
+        text-align: center;
+    }
+
+    /* Estilos para as células da tabela (exceto células dos botões) */
+    #table-usuarios td, #table-usuarios th {
+        text-align: center; /* Centraliza o conteúdo das células */
+        font-size: 16px; /* Aumenta o tamanho da fonte */
+        padding: 10px; /* Adiciona espaço interno para as células */
+        border: 1px solid #ddd; /* Adiciona uma borda fina às células */
+    }
+
+    /* Estilos para as linhas ímpares */
+    #table-usuarios tr:nth-child(odd) {
+        background-color: #CEEAF7;
+        /* Cor de fundo para linhas ímpares */
+    }
+</style>
 
 <div class="text-center">
 
