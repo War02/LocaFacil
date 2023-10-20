@@ -19,6 +19,10 @@ namespace LocaFacil.Controllers
             {
                 return View();
             }
+        public IActionResult MeuPerfil()
+        {
+            return View();
+        }
 
             public IActionResult Privacy()
             {
