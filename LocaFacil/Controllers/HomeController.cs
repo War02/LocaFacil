@@ -21,6 +21,31 @@ namespace LocaFacil.Controllers
             return View();
         }
 
+        public IActionResult VerDetalhesMobi()
+        {
+            return View();
+        }
+
+        public IActionResult VerDetalhesHb()
+        {
+            return View();
+        }
+
+        public IActionResult VerDetalhesRene()
+        {
+            return View();
+        }
+
+        public IActionResult VerDetalhesPejo()
+        {
+            return View();
+        }
+
+        public IActionResult VerDetalhesGol()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
