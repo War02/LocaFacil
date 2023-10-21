@@ -1,259 +1,67 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <style>
-        header {
-            background-color: #D3D3D3; /* Cor de fundo do header */
+        /* Estilo para centralizar imagens dos carros no carousel */
+        #car-image-carousel img {
+            display: block;
+            margin: 0 auto;
+            heigth: 500px;
         }
 
-        .navbar-nav .nav-link {
-            color: blue; /* Cor do texto no header */
-            transition: color 0.3s; /* Transição suave de cor ao passar o mouse */
+        /* Estilo para centralizar o título "Detalhes do Carro" e deixá-lo em negrito */
+        .container.car-details h1 {
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif; /* Altere a fonte conforme desejado */
         }
 
-            .navbar-nav .nav-link:hover {
-                color: gray; /* Cor do texto no header quando o mouse está sobre ele */
-            }
-
-        /* Estilos para o fundo da tela */
-        body {
-            background-color: white; /* Lavanda Blush */
-        }
-
-        .btn-primary {
-            background-color: white; /* Define o fundo do botão como branco */
-            color: blue; /* Define a cor do texto do botão como azul */
-            border: 1px solid blue; /* Adiciona uma borda azul de 1px ao botão */
-            transition: background-color 0.3s, color 0.3s, border 0.3s; /* Adiciona transições suaves para as mudanças de cor e borda */
-            margin-left: 500px;
-        }
-
-            .btn-primary:hover {
-                background-color: blue; /* Define a cor de fundo do botão quando o mouse está sobre ele como azul */
-                color: white; /* Define a cor do texto como branco quando o mouse está sobre o botão */
-                border: 1px solid white; /* Define a borda como branca quando o mouse está sobre o botão */
-            }
-
-        /* Estilos para o layout dos cards */
-        .card {
-            width: 30%; /* Defina a largura desejada para os cards */
-            border: 1px solid black;
-            margin: 10px;
-            display: inline-block;
-            vertical-align: top;
-            background-color: white;
-        }
-
-            /* Estilos para a imagem dentro dos cards */
-            .card img {
-                width: 100%;
-                height: auto;
-            }
-
-            /* Estilos para a descrição dentro dos cards */
-            .card .description {
-                padding: 10px;
-                text-align: center; /* Centraliza o conteúdo dentro do card */
-            }
-
-                /* Estilos para o elemento h3 dentro da descrição */
-                .card .description h3 {
-                    margin: 0; /* Remove a margem padrão do h3 para um visual mais limpo */
-                }
-
-        .form-group {
-            top: 30px; /* Ajuste este valor para controlar a altura da subida */
-        }
-        #buscar {
-            width: 300px;
-            height: 50px;
-            top: 10px;
-            margin-left:385px;
-            align-content: center;
-            cursor: pointer;
-        }
-
-        .card img {
-            width: 100%; /* Garante que a imagem ocupe toda a largura do card */
-            height: 230px; /* Mantém a proporção da imagem */
-        }
-
-        /* Estilos para os elementos h3, h4 e h6 */
-        .card .description h3, .card .description h5 {
+        /* Estilo para os parágrafos com detalhes do carro (alinhados à esquerda) */
+        .container.car-details p {
+            font-size: 18px;
             text-align: left;
-            color:blue;
+            font-family: Arial, sans-serif; /* Altere a fonte conforme desejado */
         }
 
-        .card .description h4 {
-            text-align: left; /* Centraliza */
-            
-        }
-
-        .card .description h6 {
-            text-align: left;
-            color: gray; /* Define a cor do texto como cinza */
-        }
-
-        /* Estilos para a linha e a localização */
-        .card .line {
-            border-top: 1px solid #ccc; /* Linha horizontal */
-        }
-
-        .card .location {
-            text-align: center; /* Centraliza a localização */
-            padding: 10px;
-        }
+            /* Estilo para os parágrafos com a marca e modelo (negrito) */
+            .container.car-details p strong {
+                font-weight: bold;
+                color: #333;
+            }
 
     </style>
-
+    <title>Detalhes do Carro</title>
 </head>
 <body>
-    @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Hey,@Model.Nome</a>*@
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>
-                        <a class="nav-link text-dark" asp-area="Index" asp-controller="Home" asp-action="">Loca<strong style="color: blue;">Facil</strong></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                </ul>
-                <a class="btn btn-primary" asp-action="index" asp-controller="Login">Entrar</a>
+    <!-- Carrossel de imagens -->
+    <div id="car-image-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/audi.png" alt="Carro 1">
             </div>
-        </nav>
-    </header>
-    <hr class="line"></hr>
-    <div class="col-md-8">
-        <div class="input-group mb-3" id="buscar">
-            <input type="text" class="form-control" placeholder="Procure seu carro" aria-label="Campo de busca" aria-describedby="icone-lupa">
-            <span class="input-group-text" id="icone-lupa">
-                <ion-icon name="search-outline"></ion-icon>
-            </span>
-        </div>
-    </div>
-<div class="content-container">
-    <div class="card">
-        <img src="~/audi.png" />
-        <div class="description">
-            <p>
-                <h3>Audi TT</h3>
-                <h6> Motor de Brasília Pegando fogo</h6>
-                    <h4><strong>R$950,00</strong> p/ dia</h4>
-            </p>
-                <a asp-action="VerDetalhes" asp-controller="Home">
-                    <button>Ver Detalhes</button>
-                </a>
-            <p> </p>
-            <div class="line"></div> <!-- Linha horizontal -->
-            <div class="location">
-                Matão - SP
+            <div class="carousel-item">
+                <img src="~/audi-tt-rs-removebg-preview (1).png" alt="Carro 2">
+            </div>
+            <div class="carousel-item">
+                <img src="~/9102-ttheritage63138kopie.jpg" alt="Carro 3"> 
             </div>
         </div>
     </div>
 
-    <div class="card">
-        <img src="~/fiat-mobi_imagem-removebg-preview.png" />
-        <div class="description">
-            <p>
-                <h3>Fiat Mobi</h3>
-                <h6> O sonho desse aqui era ser um uno</h6>
-                <h4><strong>R$200,00</strong> p/ dia</h4>
-            </p>
-                <a asp-action="VerDetalhes" asp-controller="Home">
-                    <button>Ver Detalhes</button>
-                </a>
-            <p> </p>
-            <div class="line"></div> <!-- Linha horizontal -->
-            <div class="location">
-                Matão - SP
-            </div>
-        </div>
+    <!-- Detalhes do Carro -->
+    <div class="container car-details">
+        <h1>Detalhes do Carro</h1>
+        <p><strong>Marca:</strong> Ford</p>
+        <p><strong>Modelo:</strong> Mustang</p>
+        <p><strong>Cor:</strong> Vermelho</p>
+        <p><strong>Ano:</strong> 2023</p>
     </div>
 
-    <div class="card">
-        <img src="~/hb20_imagem-removebg-preview.png" />
-        <div class="description">
-            <p>
-                <h3>Hyundai HB20</h3>
-                <h6> Se você faz odonto, esse já é seu</h6>
-                    <h4><strong>R$200,00</strong> p/ dia</h4>
-            </p>
-                <a asp-action="VerDetalhes" asp-controller="Home">
-                    <button>Ver Detalhes</button>
-                </a>
-            <p> </p>
-            <div class="line"></div> <!-- Linha horizontal -->
-            <div class="location">
-                Matão - SP
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="~/jeep-renegade_imagem-removebg-preview.png" />
-        <div class="description">
-            <p>
-                <h3>JEEP Renegade</h3>
-                <h6> Atola até no asfalto </h6>
-                    <h4><strong>R$230,00</strong> p/ dia</h4>
-            </p>
-                <a asp-action="VerDetalhes" asp-controller="Home">
-                    <button>Ver Detalhes</button>
-                </a>
-            <p> </p>
-            <div class="line"></div> <!-- Linha horizontal -->
-            <div class="location">
-                Matão - SP
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="~/peugeot308_imagem-removebg-preview.png" />
-        <div class="description">
-            <p>
-                <h3>Peugeot 308</h3>
-                <h6> Se bater motor, não é culpa nossa</h6>
-                    <h4><strong>R$300,00</strong> p/ dia</h4>
-            </p>
-                <a asp-action="VerDetalhes" asp-controller="Home">
-                    <button>Ver Detalhes</button>
-                </a>
-            <p> </p>
-            <div class="line"></div> <!-- Linha horizontal -->
-            <div class="location">
-                Matão - SP
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="~/volkswagen_gol_imagem-removebg-preview.png" />
-        <div class="description">
-            <p>
-                <h3>Volkswagen Gol</h3>
-                <h6> Não tem muito o que falar, é só um gol</h6>
-                    <h4><strong>R$160,00</strong> p/ dia</h4>
-            </p>
-                <a asp-action="VerDetalhes" asp-controller="Home">
-                    <button>Ver Detalhes</button>
-                </a>
-            <p> </p>
-            <div class="line"></div> <!-- Linha horizontal -->
-            <div class="location">
-                Matão - SP
-            </div>
-        </div>
-    </div>
-</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
