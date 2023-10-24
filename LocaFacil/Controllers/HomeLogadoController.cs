@@ -19,6 +19,7 @@ namespace LocaFacil.Controllers
             {
                 return View();
             }
+        
         public IActionResult MeuPerfil()
         {
             return View();
@@ -34,5 +35,41 @@ namespace LocaFacil.Controllers
             {
                 return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
             }
+        [PaginaParaUsuarioLogado]
+
+        public IActionResult VerDetalhes()
+        {
+            return View();
         }
+        [PaginaParaUsuarioLogado]
+
+        public IActionResult VerDetalhesMobi()
+        {
+            return View();
+        }
+        [PaginaParaUsuarioLogado]
+
+        public IActionResult VerDetalhesHb()
+        {
+            return View();
+        }
+        [PaginaParaUsuarioLogado]
+
+        public IActionResult VerDetalhesRene()
+        {
+            return View();
+        }
+        [PaginaParaUsuarioLogado]
+
+        public IActionResult VerDetalhesPejo()
+        {
+            return View();
+        }
+        [PaginaParaUsuarioLogado]
+
+        public IActionResult VerDetalhesGol()
+        {
+            return View();
+        }
+    }
     }

@@ -1,4 +1,4 @@
-﻿@model UsuarioModel;
+﻿@model UsuarioModel
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -122,10 +122,10 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li>
-                        <a class="nav-link text-dark" asp-area="Index" asp-controller="Home" asp-action="">Loca<strong style="color: blue;">Facil</strong></a>
+                        <a class="nav-link text-dark" asp-area="Index" asp-controller="HomeLogado" asp-action="">Loca<strong style="color: blue;">Facil</strong></a>
                     </li>
                     <li>
-                        <a class="navbar-brand" asp-area="" asp-controller="HomeLogado" asp-action="Index">Olá, @Model.</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="HomeLogado" asp-action="Index">Olá, Admin</a>
                     </li>
                     <li>
                         <a class="nav-link text-dark" asp-area="" asp-controller="HomeLogado" asp-action="MeuPerfil">Perfil</a>
@@ -137,7 +137,7 @@
             </div>
         </nav>
     </header>
-    <hr class="line"></hr>
+    <hr />
     <div class="col-md-8">
         <div class="input-group mb-3" id="buscar">
             <input type="text" class="form-control" placeholder="Procure seu carro" aria-label="Campo de busca" aria-describedby="icone-lupa">
@@ -155,7 +155,9 @@
                     <h6> Motor de Brasília Pegando fogo</h6>
                     <h4><strong>R$950,00</strong> p/ dia</h4>
                 </p>
-                <a role="button" asp-action="VerDetalhes" asp-controller="Home" class="btn btn-primary">Editar</a>
+                <a asp-action="VerDetalhes" asp-controller="HomeLogado">
+                    <button>Ver Detalhes</button>
+                </a>
                 <p> </p>
                 <div class="line"></div> <!-- Linha horizontal -->
                 <div class="location">
@@ -172,7 +174,9 @@
                     <h6> O sonho desse aqui era ser um uno</h6>
                     <h4><strong>R$200,00</strong> p/ dia</h4>
                 </p>
-                <a role="button" asp-action="VerDetalhes" asp-controller="Home" class="btn btn-primary">Editar</a>
+                <a asp-action="VerDetalhesMobi" asp-controller="HomeLogado">
+                    <button>Ver Detalhes</button>
+                </a>
                 <p> </p>
                 <div class="line"></div> <!-- Linha horizontal -->
                 <div class="location">
@@ -189,7 +193,7 @@
                     <h6> Se você faz odonto, esse já é seu</h6>
                     <h4><strong>R$200,00</strong> p/ dia</h4>
                 </p>
-                <a href="pagina_de_destino.html">
+                <a asp-action="VerDetalhesHb" asp-controller="HomeLogado">
                     <button>Ver Detalhes</button>
                 </a>
                 <p> </p>
@@ -208,7 +212,7 @@
                     <h6> Atola até no asfalto </h6>
                     <h4><strong>R$230,00</strong> p/ dia</h4>
                 </p>
-                <a href="pagina_de_destino.html">
+                <a asp-action="VerDetalhesRene" asp-controller="HomeLogado">
                     <button>Ver Detalhes</button>
                 </a>
                 <p> </p>
@@ -227,7 +231,7 @@
                     <h6> Se bater motor, não é culpa nossa</h6>
                     <h4><strong>R$300,00</strong> p/ dia</h4>
                 </p>
-                <a href="pagina_de_destino.html">
+                <a asp-action="VerDetalhesPejo" asp-controller="HomeLogado">
                     <button>Ver Detalhes</button>
                 </a>
                 <p> </p>
@@ -246,7 +250,7 @@
                     <h6> Não tem muito o que falar, é só um gol</h6>
                     <h4><strong>R$160,00</strong> p/ dia</h4>
                 </p>
-                <a href="pagina_de_destino.html">
+                <a asp-action="VerDetalhesGol" asp-controller="HomeLogado">
                     <button>Ver Detalhes</button>
                 </a>
                 <p> </p>
@@ -259,8 +263,3 @@
     </div>
 </body>
 </html>
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}

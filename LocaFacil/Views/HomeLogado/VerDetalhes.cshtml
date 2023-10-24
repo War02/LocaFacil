@@ -1,6 +1,5 @@
 ﻿@{
-    Layout = "_LayoutDeslogada";
-    ViewData["Title"] = "HB20";
+    ViewData["Title"] = "Audi TT";
 }
 
 <!DOCTYPE html>
@@ -85,17 +84,29 @@
             }
 
         /* Estilo para botões de controle do carrossel em preto */
-        .carousel-control-prev {
-            background-color: white;
+        .carousel-control-prev,
+        .carousel-control-next {
+            background-color: transparent; /* Remove o fundo */
+            border: none; /* Remove a borda */
         }
 
-        .carousel-control-prev-icon, .carousel-control-next-icon {
-            background-color: #000;
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #000; /* Cor preta para a parte da seta */
+            color: #fff; /* Cor do ícone (se necessário) */
         }
 
         .sr-only {
-            background-color: black;
+            background-color: transparent; /* Remove o fundo do texto de acessibilidade */
         }
+
+        Adicione esse código CSS ao seu documento e ele removerá o fundo dos botões de controle e mostrará apenas a parte da seta em preto. Certifique-se de que ele seja colocado após os estilos existentes no cabeçalho do seu documento HTML.
+
+
+
+
+
+
 
         .description {
             margin-top: 10px;
@@ -105,7 +116,7 @@
     <title>Detalhes do Carro</title>
 </head>
 <body>
-    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> </a>
+    @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Hey,@Model.Nome</a>*@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -115,28 +126,34 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li>
-                        <a class="nav-link text-dark" asp-area="Index" asp-controller="Home" asp-action="">Loca<strong style="color: blue;">Facil</strong></a>
+                        <a class="nav-link text-dark" asp-area="Index" asp-controller="HomeLogado" asp-action="">Loca<strong style="color: blue;">Facil</strong></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="HomeLogado" asp-action="Index">Olá, Admin</a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="HomeLogado" asp-action="MeuPerfil">Perfil</a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-controller="Login" asp-action="Sair">Sair</a>
                     </li>
                 </ul>
-                <a class="btn btn-primary" asp-action="index" asp-controller="Login">Entrar</a>
             </div>
         </nav>
     </header>
     <hr />
+
     <!-- Carrossel de imagens -->
     <div id="car-image-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="~/hb20_imagem-removebg-preview.png" alt="Carro 1">
+                <img src="~/audi.png" alt="Carro 1">
             </div>
             <div class="carousel-item">
-                <img src="~/hb20_lateral.jpeg" alt="Carro 2">
+                <img src="~/audi-tt-rs-removebg-preview (1).png" alt="Carro 2">
             </div>
             <div class="carousel-item">
-                <img src="~/hb20_interna.jpg" alt="Carro 3">
+                <img src="~/9102-ttheritage63138kopie.jpg" alt="Carro 3">
             </div>
         </div>
 
@@ -156,28 +173,34 @@
         <h1>Detalhes do Carro</h1>
         <div class="row">
             <div class="col-md-6">
-                <p><strong style="color:black">Marca:</strong> Hyundai</p>
-                <p><strong style="color:black">Modelo:</strong> HB20</p>
-                <p><strong style="color:black">KM:</strong> 112.420</p>
+                <p><strong style="color:black">Marca:</strong> Audi</p>
+                <p><strong style="color:black">Modelo:</strong> TT</p>
+                <p><strong style="color:black">KM:</strong> 76.352</p>
                 <hr />
             </div>
             <div class="col-md-6">
-                <p><strong style="color:black">Cor:</strong> Azul Metálico</p>
-                <p><strong style="color:black">Ano:</strong> 2022</p>
-                <p><strong style="color:black">Transmissão:</strong> Manual</p>
-                <hr />
+                <p><strong style="color:black">Cor:</strong> Cinza Espacial</p>
+                <p><strong style="color:black">Ano:</strong> 2020</p>
+                <p><strong style="color:black">Transmissão:</strong> Automática</p>
+                <hr>
             </div>
             <div class="description">
                 <strong style="color:black">Descrição</strong>
                 <p>
-                    O Hyundai HB20 é um compacto popular que oferece um equilíbrio notável entre motor, tecnologia, conforto e tamanho.
-                    O motor varia entre as opções, mas geralmente está disponível com motores a gasolina de 1.0 e 1.6 litros, oferecendo boa potência e eficiência de combustível.
-                    A tecnologia a bordo inclui uma tela sensível ao toque, conectividade Bluetooth e sistemas de entretenimento atualizados. O conforto é garantido por assentos bem projetados e um espaço interno adequado para quatro a cinco passageiros, com materiais de qualidade e atenção aos detalhes. Quanto ao tamanho, o HB20 é um veículo compacto, o que o torna ágil para a condução urbana, mas também oferece espaço suficiente para uma experiência de direção confortável.
-                    Em resumo, o Hyundai HB20 é uma opção sólida para quem procura um veículo compacto com um motor eficiente, tecnologia moderna, conforto e um tamanho prático para o uso diário.
+                    O Audi TT é um coupé esportivo compacto que combina desempenho, tecnologia de ponta, conforto e um design icônico.
+                    O motor do Audi TT varia entre as versões, mas é geralmente um motor turboalimentado de 4 cilindros.
+                    Isso proporciona excelente desempenho, com aceleração rápida e manuseio ágil, tornando o TT um carro emocionante de dirigir.
+                    Quanto à tecnologia, o TT é repleto de recursos avançados, incluindo um sistema de infotainment de última geração, navegação por GPS, conectividade com smartphones e opções de assistência ao motorista, como controle de cruzeiro adaptativo e sistemas de segurança avançados.
+                    O conforto no Audi TT é cuidadosamente considerado, com assentos esportivos que oferecem suporte e conforto, bem como materiais de alta qualidade utilizados no interior.
+                    No entanto, é importante notar que o espaço interno é limitado, típico de um coupé esportivo, e acomoda confortavelmente duas pessoas, com um banco traseiro pequeno adequado apenas para bagagem extra.
+                    O Audi TT é um carro compacto, o que o torna fácil de manobrar e estacionar, sendo ideal para a condução em áreas urbanas.
+                    Sua carroceria coupé oferece um design elegante e aerodinâmico, contribuindo para sua estética esportiva.
+                    Em resumo, o Audi TT é um coupé esportivo com um motor potente, tecnologia avançada, conforto de alta qualidade e tamanho compacto, proporcionando uma experiência de condução emocionante e estilosa.
                 </p>
             </div>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 </body>

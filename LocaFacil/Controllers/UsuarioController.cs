@@ -26,12 +26,15 @@ namespace LocaFacil.Controllers
             {
                 return View();
             }
-
-            public IActionResult ApagarConfirmacao(int id)
+            public IActionResult CriarLogado()
             {
-                UsuarioModel usuario = _usuarioRepositorio.BuscarPorId(id);
-                return View(usuario);
+                return View();
             }
+            public IActionResult ApagarConfirmacao(int id)
+                {
+                    UsuarioModel usuario = _usuarioRepositorio.BuscarPorId(id);
+                    return View(usuario);
+                }
 
             public IActionResult Apagar(int id)
             {
