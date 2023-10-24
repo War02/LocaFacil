@@ -32,6 +32,20 @@
                 font-weight: bold;
                 color: #333;
             }
+
+        /* Estilo para botões de controle do carrossel em preto */
+        .carousel-control-prev {
+            background-color: white;
+        }
+
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            background-color: #000;
+        }
+
+        .sr-only {
+            background-color: black;
+        }
+
     </style>
     <title>Detalhes do Carro</title>
 </head>
@@ -40,7 +54,7 @@
     <div id="car-image-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-               <img src="~/fiat-mobi_imagem-removebg-preview.png" alt="Carro 1">
+                <img src="~/fiat-mobi_imagem-removebg-preview.png" alt="Carro 1">
             </div>
             <div class="carousel-item">
                 <img src="~/mobi_traseira-removebg-preview.png" alt="Carro 2">
@@ -49,21 +63,31 @@
                 <img src="~/mobi_interna.jpg" alt="Carro 3">
             </div>
         </div>
+
+        <!-- Botões de controle personalizados -->
+        <a class="carousel-control-prev" href="#car-image-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#car-image-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" ariahidden="true"></span>
+            <span class="sr-only">Próximo</span>
+        </a>
     </div>
 
     <!-- Detalhes do Carro -->
     <div class="container car-details">
         <h1>Detalhes do Carro</h1>
         <p><strong>Marca:</strong> Fiat</p>
-        <p><strong>Modelo:</strong> Mustang</p>
+        <p><strong>Modelo:</strong> Mobi</p>
         <p><strong>Cor:</strong> Vermelho</p>
         <p><strong>Ano:</strong> 2023</p>
         <p>
-            O Fiat Mobi é um carro compacto que se destaca por sua eficiência e economia. 
-            O motor do Mobi é geralmente um 1.0 litro, que oferece bom desempenho em termos de consumo de combustível, tornando-o uma escolha ideal para a condução urbana. 
+            O Fiat Mobi é um carro compacto que se destaca por sua eficiência e economia.
+            O motor do Mobi é geralmente um 1.0 litro, que oferece bom desempenho em termos de consumo de combustível, tornando-o uma escolha ideal para a condução urbana.
             Em relação à tecnologia, o Mobi oferece recursos básicos, como sistema de áudio, conexão Bluetooth e alguns modelos podem incluir uma tela sensível ao toque.
             No que diz respeito ao conforto, o Mobi é projetado para acomodar quatro a cinco passageiros de forma adequada, oferecendo assentos razoavelmente confortáveis e espaço interno suficiente para viagens curtas a médias. No entanto, o foco principal do Mobi é sua praticidade na cidade.
-            Em termos de tamanho, o Fiat Mobi é compacto e ágil, o que o torna fácil de manobrar em áreas urbanas e estacionar em espaços apertados. 
+            Em termos de tamanho, o Fiat Mobi é compacto e ágil, o que o torna fácil de manobrar em áreas urbanas e estacionar em espaços apertados.
             É um veículo ideal para quem busca mobilidade urbana e economia de combustível.
             Em resumo, o Fiat Mobi é um carro compacto com um motor eficiente, tecnologia básica, conforto adequado para seu segmento e um tamanho que o torna ideal para a condução na cidade.
         </p>

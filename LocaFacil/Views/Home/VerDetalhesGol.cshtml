@@ -33,6 +33,19 @@
                 color: #333;
             }
 
+        /* Estilo para botões de controle do carrossel em preto */
+        .carousel-control-prev {
+            background-color: white;
+        }
+
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            background-color: #000;
+        }
+
+        .sr-only {
+            background-color: black;
+        }
+
     </style>
     <title>Detalhes do Carro</title>
 </head>
@@ -50,24 +63,34 @@
                 <img src="~/vw-gol-2020 (2)_golzin.jpg" alt="Carro 3">
             </div>
         </div>
+
+        <!-- Botões de controle personalizados -->
+        <a class="carousel-control-prev" href="#car-image-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#car-image-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" ariahidden="true"></span>
+            <span class="sr-only">Próximo</span>
+        </a>
     </div>
 
     <!-- Detalhes do Carro -->
     <div class="container car-details">
         <h1>Detalhes do Carro</h1>
-        <p><strong>Marca:</strong> Ford</p>
-        <p><strong>Modelo:</strong> Mustang</p>
+        <p><strong>Marca:</strong> Volkswagen</p>
+        <p><strong>Modelo:</strong> Gol</p>
         <p><strong>Cor:</strong> Vermelho</p>
         <p><strong>Ano:</strong> 2023</p>
         <p>
             O Volkswagen Gol é um compacto popular conhecido por sua confiabilidade e versatilidade.
-            O motor do Volkswagen Gol é geralmente um motor a gasolina de 1.0 litro ou 1.6 litros, que oferece um equilíbrio entre eficiência de combustível e desempenho. 
+            O motor do Volkswagen Gol é geralmente um motor a gasolina de 1.0 litro ou 1.6 litros, que oferece um equilíbrio entre eficiência de combustível e desempenho.
             Esses motores são conhecidos por sua durabilidade e baixa manutenção.
-            Em termos de tecnologia, o Gol oferece recursos básicos, como sistema de som, conexão Bluetooth e algumas versões podem incluir uma tela sensível ao toque para o sistema de infotainment. 
+            Em termos de tecnologia, o Gol oferece recursos básicos, como sistema de som, conexão Bluetooth e algumas versões podem incluir uma tela sensível ao toque para o sistema de infotainment.
             No entanto, ele não é tão avançado em termos de tecnologia quando comparado a alguns concorrentes mais recentes.
-            O conforto no Volkswagen Gol é adequado para um carro compacto, com assentos confortáveis e espaço interno suficiente para acomodar quatro a cinco passageiros de forma razoável. 
+            O conforto no Volkswagen Gol é adequado para um carro compacto, com assentos confortáveis e espaço interno suficiente para acomodar quatro a cinco passageiros de forma razoável.
             No entanto, em termos de acabamento e materiais do interior, ele pode ser mais simples do que carros de segmentos superiores.
-            O tamanho do Volkswagen Gol é compacto, o que o torna ideal para a condução em áreas urbanas, facilitando a manobrabilidade e o estacionamento. 
+            O tamanho do Volkswagen Gol é compacto, o que o torna ideal para a condução em áreas urbanas, facilitando a manobrabilidade e o estacionamento.
             Sua carroceria hatchback oferece praticidade adicional para carga.
             Em resumo, o Volkswagen Gol é um compacto confiável com um motor eficiente, tecnologia básica, conforto adequado para seu segmento e um tamanho prático para uso diário, especialmente em ambientes urbanos.
         </p>
