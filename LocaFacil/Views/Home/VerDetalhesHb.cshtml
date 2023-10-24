@@ -32,7 +32,22 @@
                 font-weight: bold;
                 color: #333;
             }
+
+        /* Estilo para botões de controle do carrossel em preto */
+        .carousel-control-prev {
+            background-color: white;
+        }
+
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            background-color: #000;
+        }
+
+        .sr-only {
+            background-color: black;
+        }
+
     </style>
+
     <title>Detalhes do Carro</title>
 </head>
 <body>
@@ -46,16 +61,26 @@
                 <img src="~/hb20_lateral.jpeg" alt="Carro 2">
             </div>
             <div class="carousel-item">
-                <img src="~/hb20_interna.jpg"  alt="Carro 3">
+                <img src="~/hb20_interna.jpg" alt="Carro 3">
             </div>
         </div>
+
+        <!-- Botões de controle personalizados -->
+        <a class="carousel-control-prev" href="#car-image-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#car-image-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" ariahidden="true"></span>
+            <span class="sr-only">Próximo</span>
+        </a>
     </div>
 
     <!-- Detalhes do Carro -->
     <div class="container car-details">
         <h1>Detalhes do Carro</h1>
-        <p><strong>Marca:</strong> Ford</p>
-        <p><strong>Modelo:</strong> Mustang</p>
+        <p><strong>Marca:</strong> Hyundai</p>
+        <p><strong>Modelo:</strong> HB20</p>
         <p><strong>Cor:</strong> Vermelho</p>
         <p><strong>Ano:</strong> 2023</p>
         <p>
