@@ -36,6 +36,7 @@ namespace LocaFacil.Repositorio
             _context.Usuarios.Add(usuario);
             _context.SaveChanges();
             return usuario;
+           
         }
 
         public UsuarioModel Atualizar(UsuarioModel usuario)
