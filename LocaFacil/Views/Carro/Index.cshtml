@@ -1,0 +1,56 @@
+﻿@model List<CarroModel>
+@{
+    ViewData["Title"] = "Carros";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn " btn-primary" asp-controller="Carro" asp-action="Criar" role="button">Adicionar novo veículo</a>
+    </div>
+
+    <h1 class="display-4">Listagem de Veículos</h1>
+
+    <table id="table-veiculos" class="display" style="width:60%">
+        <thead>
+            <tr>
+                <th scope="col">Marca</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Cor</th>
+                <th scope="col">Ano</th>
+                <th scope="col">Transmissão</th>              
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var carro in Model)
+                {
+                    <tr>
+                        <th scope="row">@carro.Id</th>
+                        <td>@carro.Marca</td>
+                        <td>@carro.Modelo</td>
+                        <td>@carro.Cor</td>
+                        <td>@carro.Ano</td>
+                        <td>@carro.Transmissao</td>
+                       
+                        <td>
+                            @* <div class="btn-group" role="group">
+                                <a role="button" asp-action="Editar" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-primary">Editar</a>
+                                <a role="button" asp-action="ApagarConfirmacao" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-primary">Apagar</a>
+                            </div> *@
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr calss="odd"><td valign="top" colspan="5">Nenhum Usuário Encontrado</td></tr>
+            }
+        </tbody>
+
+    </table>
+
+
+</div>
