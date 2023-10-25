@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <style>
+
         header {
             background-color: #D3D3D3; /* Cor de fundo do header */
         }
@@ -46,13 +47,22 @@
         }
 
         /* Estilo para centralizar o título "Detalhes do Carro" e deixá-lo em negrito */
-        .container.car-details h1 {
-            font-size: 24px;
-            text-align: center;
+        .container.car-details h3 {
+            font-size: 20px;
+            text-align: left;
+            font-weight: bold;
+            font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
+            color: black;
+            margin-top: 10px;
+        }
+
+        .container.itens-car h1{
+            font-size: 20px;
+            text-align: left;
             font-weight: bold;
             font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
         }
-
+       
         /* Estilo para os parágrafos com detalhes do carro (alinhados à esquerda) */
         .container.car-details p {
             font-size: 18px;
@@ -67,7 +77,19 @@
                 font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
             }
 
-        .container.car-details h1 {
+        .container.itens-car p{
+            font-size: 18px;
+            text-align: left;
+            font-family: Poppins, sans-serif;
+        }
+
+        .container.itens-car p strong {
+            font-weight: bold;
+            color: #333;
+            font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
+        }
+
+        .container.itens-car h1 {
             color: black;
             margin-top: 10px;
         }
@@ -76,11 +98,23 @@
             text-align: left;
             width: 70%; /* Ajuste a largura conforme desejado */
             margin: 0 auto;
-            background-color: #DCDCDC;
+            background-color: #F0FFF0;
             border-radius: 10px;
         }
 
             .container.car-details p {
+                color: gray;
+            }
+
+        .container.itens-car {
+            text-align: left;
+            width: 70%; /* Ajuste a largura conforme desejado */
+            margin: 0 auto;
+            background-color: #F0FFF0;
+            border-radius: 10px;
+        }
+
+            .container.itens-car p {
                 color: gray;
             }
 
@@ -100,14 +134,6 @@
         .sr-only {
             background-color: transparent; /* Remove o fundo do texto de acessibilidade */
         }
-
-        Adicione esse código CSS ao seu documento e ele removerá o fundo dos botões de controle e mostrará apenas a parte da seta em preto. Certifique-se de que ele seja colocado após os estilos existentes no cabeçalho do seu documento HTML.
-
-
-
-
-
-
 
         .description {
             margin-top: 10px;
@@ -166,21 +192,20 @@
 
     <!-- Detalhes do Carro -->
     <div class="container car-details" style="width: 1300px; height: auto;">
-        <h1>Detalhes do Carro</h1>
+        <h3>Detalhes do Carro</h3>
         <div class="row">
             <div class="col-md-6">
                 <p><strong style="color:black">Marca:</strong> Audi</p>
                 <p><strong style="color:black">Modelo:</strong> TT</p>
                 <p><strong style="color:black">KM:</strong> 76.352</p>
-                <hr />
             </div>
             <div class="col-md-6">
                 <p><strong style="color:black">Cor:</strong> Cinza Espacial</p>
                 <p><strong style="color:black">Ano:</strong> 2020</p>
                 <p><strong style="color:black">Transmissão:</strong> Automática</p>
-                <hr>
             </div>
             <div class="description">
+                <hr />
                 <strong style="color:black">Descrição</strong>
                 <p>
                     O Audi TT é um coupé esportivo compacto que combina desempenho, tecnologia de ponta, conforto e um design icônico.
@@ -194,6 +219,24 @@
                     Em resumo, o Audi TT é um coupé esportivo com um motor potente, tecnologia avançada, conforto de alta qualidade e tamanho compacto, proporcionando uma experiência de condução emocionante e estilosa.
                 </p>
             </div>
+        </div>
+    </div>
+    <div class="container itens-car" style="width: 1300px; height: auto;">
+        <h1> Itens do carro </h1>
+        <div class="row">
+            <div class="col-md-4">
+                <p>Alarme</p>
+                <p>Ar condicionado</p>
+            </div>
+            <div class="col-md-4">
+                <p>Vidros elétricos</p>
+                <p>Travas elétricas</p>
+            </div>
+            <div class="col-md-4">
+                <p>Direção hidráulica</p>
+                <p>Chaveiro personalizado</p>
+            </div>
+
         </div>
     </div>
 
