@@ -13,10 +13,15 @@ namespace LocaFacil.Repositorio
 
         public CarroModel Adicionar(CarroModel carro)
         {
-            _context.Add(carro);
+            _context.Carros.Add(carro);
             _context.SaveChanges();
             return carro;
 
+        }
+
+        public List<CarroModel> BuscarTodos()
+        {
+            return _context.Carros.ToList();
         }
     }
 }

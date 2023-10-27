@@ -14,6 +14,7 @@ builder.Services.AddDbContext<BancoContext>
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+builder.Services.AddScoped<ICarroRepositorio, CarroRepositorio>();
 builder.Services.AddScoped<ISessao, Sessao>();
 
 builder.Services.AddSession(o =>
