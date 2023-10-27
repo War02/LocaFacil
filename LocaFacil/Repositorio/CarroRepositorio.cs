@@ -8,12 +8,9 @@ namespace LocaFacil.Repositorio
         private readonly BancoContext _context;
         public CarroRepositorio(BancoContext bancoContext)
         {
-           this._context = bancoContext;
+            this._context = bancoContext;
         }
-        public List<CarroModel> BuscarTodos()
-        {
-            return _context.Carros.ToList();
-        }
+
         public CarroModel Adicionar(CarroModel carro)
         {
             _context.Carros.Add(carro);
@@ -25,5 +22,6 @@ namespace LocaFacil.Repositorio
         public List<CarroModel> BuscarTodos()
         {
             return _context.Carros.ToList();
+        }
     }
 }
