@@ -3,54 +3,87 @@
     ViewData["Title"] = "Carros";
 }
 
-<div class="text-center">
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Estilo para as linhas pares */
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Cor de fundo para as linhas pares */
+        }
 
-    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a class="btn " btn-primary" asp-controller="Carro" asp-action="Criar" role="button">Adicionar novo veículo</a>
+        /* Estilo para as linhas ímpares */
+        tr:nth-child(odd) {
+            background-color: #ffffff; /* Cor de fundo para as linhas ímpares */
+        }
+
+        /* Alinhar o conteúdo horizontalmente */
+        .text-center {
+            margin: 0 auto; /* Define margens automáticas para centralizar o conteúdo horizontalmente */
+        }
+
+        /* Aumentar o tamanho da tabela */
+        #table-veiculos {
+            width: 80%; /* Defina a largura desejada para a tabela, por exemplo, 80% da largura da tela */
+            margin: 20px; /* Adicione margem para espaçamento ao redor da tabela */
+        }
+
+        /* Estilo para o botão "Adicionar novo veículo" ao passar o mouse */
+        .btn-primary:hover {
+            background-color: #2e6da4; /* Cor mais escura ao passar o mouse */
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="text-center">
+        <h1 class="display-4">Listagem de Veículos</h1>
+
+        <table id="table-veiculos" class="display">
+            <thead>
+                <tr>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Cor</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Transmissão</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var carro in Model)
+                    {
+                        <tr>
+                            <th scope="row">@carro.Id</th>
+                            <td>@carro.Marca</td>
+                            <td>@carro.Modelo</td>
+                            <td>@carro.Cor</td>
+                            <td>@carro.Ano</td>
+                            <td>@carro.Transmissao</td>
+
+                            <td>
+                                @* <div class="btn-group" role="group">
+                        <a role="button" asp-action="Editar" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-primary">Editar</a>
+                        <a role="button" asp-action="ApagarConfirmacao" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-primary">Apagar</a>
+                        </div> *@
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr class="odd"><td valign="top" colspan="5">Nenhum Usuário Encontrado</td></tr>
+                }
+            </tbody>
+        </table>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a class="btn btn-primary" asp-controller="Carro" asp-action="Criar" role="button">Adicionar novo veículo</a>
+        </div>
     </div>
 
-    <h1 class="display-4">Listagem de Veículos</h1>
-
-    <table id="table-veiculos" class="display" style="width:60%">
-        <thead>
-            <tr>
-                <th scope="col">Marca</th>
-                <th scope="col">Modelo</th>
-                <th scope="col">Cor</th>
-                <th scope="col">Ano</th>
-                <th scope="col">Transmissão</th>              
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model != null && Model.Any())
-            {
-                foreach (var carro in Model)
-                {
-                    <tr>
-                        <th scope="row">@carro.Id</th>
-                        <td>@carro.Marca</td>
-                        <td>@carro.Modelo</td>
-                        <td>@carro.Cor</td>
-                        <td>@carro.Ano</td>
-                        <td>@carro.Transmissao</td>
-                       
-                        <td>
-                            @* <div class="btn-group" role="group">
-                                <a role="button" asp-action="Editar" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-primary">Editar</a>
-                                <a role="button" asp-action="ApagarConfirmacao" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-primary">Apagar</a>
-                            </div> *@
-                        </td>
-                    </tr>
-                }
-            }
-            else
-            {
-                <tr calss="odd"><td valign="top" colspan="5">Nenhum Usuário Encontrado</td></tr>
-            }
-        </tbody>
-
-    </table>
-
-
-</div>
+</body>
+</html>

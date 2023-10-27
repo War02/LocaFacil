@@ -21,5 +21,9 @@ namespace LocaFacil.Repositorio
             return carro;
 
         }
+
+        public List<CarroModel> BuscarTodos()
+        {
+            return _context.Carros.ToList();
     }
 }
