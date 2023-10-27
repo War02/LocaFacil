@@ -12,6 +12,8 @@ namespace LocaFacil.Data
         }
 
         public DbSet<UsuarioModel> Usuarios { get; set; }
+        public DbSet<CarroModel> Carros { get; set; }
+
     }
 }
   
