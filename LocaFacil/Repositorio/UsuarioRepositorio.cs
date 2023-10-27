@@ -24,6 +24,7 @@ namespace LocaFacil.Repositorio
         {
             return _context.Usuarios.ToList();
         }
+
         public UsuarioModel Adicionar(UsuarioModel usuario)
         {
             if (_context.Usuarios.Any(u => u.Login == usuario.Login && u.Id != usuario.Id))
@@ -36,6 +37,7 @@ namespace LocaFacil.Repositorio
             _context.Usuarios.Add(usuario);
             _context.SaveChanges();
             return usuario;
+           
         }
 
         public UsuarioModel Atualizar(UsuarioModel usuario)

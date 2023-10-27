@@ -80,6 +80,7 @@ namespace LocaFacil.Controllers
                     return RedirectToAction("Index", "Login");
                 }
             }
+
             [HttpPost]
             public IActionResult Editar(UsuarioSemSenhaModel usuarioSemSenhaModel)
             {
