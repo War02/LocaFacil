@@ -10,10 +10,13 @@ namespace LocaFacil.Repositorio
         {
            this._context = bancoContext;
         }
-
+        public List<CarroModel> BuscarTodos()
+        {
+            return _context.Carros.ToList();
+        }
         public CarroModel Adicionar(CarroModel carro)
         {
-            _context.Add(carro);
+            _context.Carros.Add(carro);
             _context.SaveChanges();
             return carro;
 
