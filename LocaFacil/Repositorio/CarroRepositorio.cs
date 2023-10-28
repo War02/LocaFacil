@@ -39,14 +39,22 @@ namespace LocaFacil.Repositorio
             carroDB.Ano = carro.Ano;
             carroDB.Transmissao = carro.Transmissao;
 
-            
-
             _context.Carros.Update(carroDB);
             _context.SaveChanges();
 
             return carroDB;
         }
 
-        
+        public bool Apagar(int id)
+        {
+            CarroModel carroDB = BuscarPorId(id);
+
+            if (carroDB == null) throw new Exception("Houve um erro na deleção de veículo");
+
+            _context.Carros.Remove(carroDB);
+            _context.SaveChanges();
+
+            return true;
+        }
     }
 }

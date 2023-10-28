@@ -27,6 +27,22 @@ namespace LocaFacil.Controllers
             CarroModel carro = _carroRepositorio.BuscarPorId(id);
             return View(carro);
         }
+        public IActionResult Apagar(int id)
+        {
+            try
+            {
+                bool apagado = _carroRepositorio.Apagar(id);
+
+                if (apagado) TempData["MensagemSucesso"] = "Veículo apagado com sucesso"; else TempData["MensagemErro"] = "Ops, não conseguimos apagar este veículo";
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não conseguimos apagar este veículo. Detalhe do erro {erro.Message}";
+                return RedirectToAction("Index");
+            }
+        }
 
         [HttpPost]
         public IActionResult Criar(CarroModel carro)
