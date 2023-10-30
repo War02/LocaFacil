@@ -12,6 +12,7 @@
 
         .navbar-nav .nav-link {
             color: blue; /* Cor do texto no header */
+            margin-right: 10px; /* Adiciona um espaço de 10px à direita de cada link */
             transition: color 0.3s; /* Transição suave de cor ao passar o mouse */
         }
 
@@ -30,6 +31,7 @@
             border: 1px solid blue; /* Adiciona uma borda azul de 1px ao botão */
             transition: background-color 0.3s, color 0.3s, border 0.3s; /* Adiciona transições suaves para as mudanças de cor e borda */
             margin-left: 500px;
+            margin-top:10px;
         }
 
             .btn-primary:hover {
@@ -38,6 +40,19 @@
                 border: 1px solid white; /* Define a borda como branca quando o mouse está sobre o botão */
             }
 
+        .btn-primary {
+            background-color: white; /* Define o fundo do botão como branco */
+            color: blue; /* Define a cor do texto do botão como azul */
+            border: 1px solid blue; /* Adiciona uma borda azul de 1px ao botão */
+            transition: background-color 0.3s, color 0.3s, border 0.3s; /* Adiciona transições suaves para as mudanças de cor e borda */
+            margin-left: 500px;
+        }
+
+            .btn-primary:hover {
+                background-color: blue; /* Define a cor de fundo do botão quando o mouse está sobre ele como azul */
+                color: white; /* Define a cor do texto como branco quando o mouse está sobre o botão */
+                border: 1px solid white; /* Define a borda como branca quando o mouse está sobre o botão */
+            }
         /* Estilos para o layout dos cards */
         .card {
             width: 30%; /* Defina a largura desejada para os cards */
@@ -133,10 +148,8 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Carro" asp-action="Index">CadastrarVeículo</a>
                     </li>
-                    <li>
-                        <a class="nav-link text-dark" asp-controller="Login" asp-action="Sair">Sair</a>
-                    </li>
                 </ul>
+                <a class="btn btn-primary" asp-controller="Login" asp-action="Sair">Sair</a>
             </div>
         </nav>
     </header>
