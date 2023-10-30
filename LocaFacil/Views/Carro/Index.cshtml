@@ -64,12 +64,11 @@
                             <td>@carro.Cor</td>
                             <td>@carro.Ano</td>
                             <td>@carro.Transmissao</td>
-
                             <td>
-                                @* <div class="btn-group" role="group">
-                        <a role="button" asp-action="Editar" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-primary">Editar</a>
-                        <a role="button" asp-action="ApagarConfirmacao" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-primary">Apagar</a>
-                        </div> *@
+                                <div class="btn-group" role="group">
+                                    <a role="button" asp-action="Editar" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-primary">Editar</a>
+                                    <a role="button" asp-action="ApagarConfirmacao" asp-controller="Usuario" asp-route-id="@usuario.Id" class="btn btn-primary">Apagar</a>
+                                </div> 
                             </td>
                         </tr>
                     }
