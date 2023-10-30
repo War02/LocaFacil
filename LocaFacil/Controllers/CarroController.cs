@@ -1,9 +1,11 @@
-﻿using LocaFacil.Models;
+﻿using LocaFacil.Filters;
+using LocaFacil.Models;
 using LocaFacil.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LocaFacil.Controllers
 {
+    [PaginaRestritaAdmin]
     public class CarroController : Controller
     {
         private readonly ICarroRepositorio _carroRepositorio;
@@ -43,6 +45,11 @@ namespace LocaFacil.Controllers
                 return RedirectToAction("Index");
             }
         }
+        public IActionResult ApagarConfirmacao(int id)
+        {
+            CarroModel carro = _carroRepositorio.BuscarPorId(id);
+            return View(carro);
+        }
 
         [HttpPost]
         public IActionResult Criar(CarroModel carro)
@@ -79,6 +86,7 @@ namespace LocaFacil.Controllers
                         Modelo = carroModel.Modelo,
                         Km = carroModel.Km,
                         Cor = carroModel.Cor,
+                        Ano = carroModel.Ano,
                         Transmissao = carroModel.Transmissao,
                     };
 

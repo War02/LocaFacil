@@ -1,7 +1,7 @@
 ﻿@using LocaFacil.Enums;
 @model CarroModel
 @{
-    ViewData["Title"] = "Adicionar Carro";
+    ViewData["Title"] = "Editar Carro";
 }
 <style>
     .form-container {
@@ -35,8 +35,8 @@
     <h1 class="display-4">Cadastrar Carro</h1>
     <div class="agrupador">
         <form asp-controller="Carro" asp-action="Editar" method="post">
+            
             <input type="hidden" asp-for="Id" />
-
             <div class="form-group">
                 <label for="marca" class="form-label">Marca</label>
                 <input type="text" asp-for="Marca" class="form-control" placeholder="Digite a Marca do veículo" />
