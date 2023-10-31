@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "_LayoutDeslogada";
-    ViewData["Title"] = "Mobi";
+    ViewData["Title"] = "Mobizada";
 }
 
 <!DOCTYPE html>
@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <style>
+
         header {
             background-color: #D3D3D3; /* Cor de fundo do header */
         }
@@ -46,9 +47,18 @@
         }
 
         /* Estilo para centralizar o título "Detalhes do Carro" e deixá-lo em negrito */
-        .container.car-details h1 {
-            font-size: 24px;
+        .container.car-details h3 {
+            font-size: 20px;
             text-align: center;
+            font-weight: bold;
+            font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
+            color: black;
+            margin-top: 10px;
+        }
+
+        .container.itens-car h1 {
+            font-size: 20px;
+            text-align: left;
             font-weight: bold;
             font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
         }
@@ -67,7 +77,19 @@
                 font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
             }
 
-        .container.car-details h1 {
+        .container.itens-car p {
+            font-size: 18px;
+            text-align: left;
+            font-family: Poppins, sans-serif;
+        }
+
+            .container.itens-car p strong {
+                font-weight: bold;
+                color: #333;
+                font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
+            }
+
+        .container.itens-car h1 {
             color: black;
             margin-top: 10px;
         }
@@ -84,17 +106,33 @@
                 color: gray;
             }
 
-        /* Estilo para botões de controle do carrossel em preto */
-        .carousel-control-prev {
-            background-color: white;
+        .container.itens-car {
+            text-align: left;
+            width: 70%; /* Ajuste a largura conforme desejado */
+            margin: 0 auto;
+            background-color: #DCDCDC;
+            border-radius: 10px;
         }
 
-        .carousel-control-prev-icon, .carousel-control-next-icon {
-            background-color: #000;
+            .container.itens-car p {
+                color: gray;
+            }
+
+        /* Estilo para botões de controle do carrossel em preto */
+        .carousel-control-prev,
+        .carousel-control-next {
+            background-color: transparent; /* Remove o fundo */
+            border: none; /* Remove a borda */
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #000; /* Cor preta para a parte da seta */
+            color: #fff; /* Cor do ícone (se necessário) */
         }
 
         .sr-only {
-            background-color: black;
+            background-color: transparent; /* Remove o fundo do texto de acessibilidade */
         }
 
         .description {
@@ -129,6 +167,7 @@
         </nav>
     </header>
     <hr />
+
     <!-- Carrossel de imagens -->
     <div id="car-image-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -156,21 +195,20 @@
 
     <!-- Detalhes do Carro -->
     <div class="container car-details" style="width: 1300px; height: auto;">
-        <h1>Detalhes do Carro</h1>
+        <h3>Detalhes do Carro</h3>
         <div class="row">
             <div class="col-md-6">
                 <p><strong style="color:black">Marca:</strong> Fiat</p>
                 <p><strong style="color:black">Modelo:</strong> Mobi</p>
                 <p><strong style="color:black">KM:</strong> 52.635</p>
-                <hr />
             </div>
             <div class="col-md-6">
                 <p><strong style="color:black">Cor:</strong> Cinza</p>
                 <p><strong style="color:black">Ano:</strong> 2020</p>
                 <p><strong style="color:black">Transmissão:</strong> Manual</p>
-                <hr />
             </div>
             <div class="description">
+                <hr />
                 <strong style="color:black">Descrição</strong>
                 <p>
                     O Fiat Mobi é um carro compacto que se destaca por sua eficiência e economia.
@@ -181,6 +219,23 @@
                     É um veículo ideal para quem busca mobilidade urbana e economia de combustível.
                     Em resumo, o Fiat Mobi é um carro compacto com um motor eficiente, tecnologia básica, conforto adequado para seu segmento e um tamanho que o torna ideal para a condução na cidade.
                 </p>
+            </div>
+        </div>
+    </div>
+    <div class="container itens-car" style="width: 1300px; height: auto;">
+        <h1> Itens do carro </h1>
+        <div class="row">
+            <div class="col-md-4">
+                <p>Alarme</p>
+                <p>Ar condicionado</p>
+            </div>
+            <div class="col-md-4">
+                <p>Vidros elétricos</p>
+                <p>Travas elétricas</p>
+            </div>
+            <div class="col-md-4">
+                <p>Direção hidráulica</p>
+                <p>Chaveiro personalizado</p>
             </div>
         </div>
     </div>
