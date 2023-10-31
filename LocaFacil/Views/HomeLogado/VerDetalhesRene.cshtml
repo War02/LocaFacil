@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <style>
+
         header {
             background-color: #D3D3D3; /* Cor de fundo do header */
         }
@@ -46,9 +47,18 @@
         }
 
         /* Estilo para centralizar o título "Detalhes do Carro" e deixá-lo em negrito */
-        .container.car-details h1 {
-            font-size: 24px;
+        .container.car-details h3 {
+            font-size: 20px;
             text-align: center;
+            font-weight: bold;
+            font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
+            color: black;
+            margin-top: 10px;
+        }
+
+        .container.itens-car h1 {
+            font-size: 20px;
+            text-align: left;
             font-weight: bold;
             font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
         }
@@ -67,7 +77,19 @@
                 font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
             }
 
-        .container.car-details h1 {
+        .container.itens-car p {
+            font-size: 18px;
+            text-align: left;
+            font-family: Poppins, sans-serif;
+        }
+
+            .container.itens-car p strong {
+                font-weight: bold;
+                color: #333;
+                font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
+            }
+
+        .container.itens-car h1 {
             color: black;
             margin-top: 10px;
         }
@@ -84,13 +106,33 @@
                 color: gray;
             }
 
-        /* Estilo para botões de controle do carrossel em preto */
-        .carousel-control-prev {
-            background-color: white;
+        .container.itens-car {
+            text-align: left;
+            width: 70%; /* Ajuste a largura conforme desejado */
+            margin: 0 auto;
+            background-color: #DCDCDC;
+            border-radius: 10px;
         }
 
-        .carousel-control-prev-icon, .carousel-control-next-icon {
-            background-color: black;
+            .container.itens-car p {
+                color: gray;
+            }
+
+        /* Estilo para botões de controle do carrossel em preto */
+        .carousel-control-prev,
+        .carousel-control-next {
+            background-color: transparent; /* Remove o fundo */
+            border: none; /* Remove a borda */
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #000; /* Cor preta para a parte da seta */
+            color: #fff; /* Cor do ícone (se necessário) */
+        }
+
+        .sr-only {
+            background-color: transparent; /* Remove o fundo do texto de acessibilidade */
         }
 
         .description {
@@ -101,7 +143,7 @@
     <title>Detalhes do Carro</title>
 </head>
 <body>
-    @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Hey,@Model.Nome</a>*@
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> </a>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -111,26 +153,21 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li>
-                        <a class="nav-link text-dark" asp-area="Index" asp-controller="HomeLogado" asp-action="">Loca<strong style="color: blue;">Facil</strong></a>
-                    </li>
-                    <li>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="HomeLogado" asp-action="Index">Olá, Admin</a>
+                        <a class="nav-link text-dark" asp-area="Index" asp-controller="Home" asp-action="">Loca<strong style="color: blue;">Facil</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Carro" asp-action="Index">CadastrarVeículo</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">CadastrarVeículo</a>
                     </li>
-                    <li>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="HomeLogado" asp-action="MeuPerfil">Perfil</a>
-                    </li>
-                    <li>
-                        <a class="nav-link text-black" asp-area="" asp-controller="HomeLogado" asp-action="Ajuda">Ajuda</a>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Ajuda">Ajuda</a>
                     </li>
                 </ul>
-                <a class="btn btn-primary" asp-controller="Login" asp-action="Sair">Sair</a>
+                <a class="btn btn-primary" asp-action="index" asp-controller="Login">Entrar</a>
             </div>
         </nav>
     </header>
     <hr />
+
     <!-- Carrossel de imagens -->
     <div id="car-image-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -145,7 +182,7 @@
             </div>
         </div>
 
-        <!-- Botões de controle em preto -->
+        <!-- Botões de controle personalizados -->
         <a class="carousel-control-prev" href="#car-image-carousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Anterior</span>
@@ -156,23 +193,22 @@
         </a>
     </div>
 
-    <!-- Detalhes do Carro com duas colunas -->
+    <!-- Detalhes do Carro -->
     <div class="container car-details" style="width: 1300px; height: auto;">
-        <h1>Detalhes do Carro</h1>
+        <h3>Detalhes do Carro</h3>
         <div class="row">
             <div class="col-md-6">
                 <p><strong style="color:black">Marca:</strong> Jeep</p>
                 <p><strong style="color:black">Modelo:</strong> Renegade</p>
                 <p><strong style="color:black">KM:</strong> 100.000</p>
-                <hr />
             </div>
             <div class="col-md-6">
                 <p><strong style="color:black">Cor:</strong> Laranja</p>
                 <p><strong style="color:black">Ano:</strong> 2022</p>
                 <p><strong style="color:black">Transmissão:</strong> Automático</p>
-                <hr />
             </div>
             <div class="description">
+                <hr />
                 <strong style="color:black">Descrição</strong>
                 <p>
                     O Jeep Renegade é um SUV compacto que combina versatilidade, tecnologia, conforto e um tamanho ideal para aventuras urbanas e off-road.
@@ -184,6 +220,270 @@
                     O tamanho do Jeep Renegade o coloca na categoria de SUVs compactos, o que o torna ágil para a condução urbana e fácil de estacionar, mas ainda oferece um interior espaçoso o suficiente para viagens em família e aventuras fora da estrada.
                     Em resumo, o Jeep Renegade é um SUV compacto que combina um motor eficiente, tecnologia avançada, conforto e um tamanho versátil, tornando-o uma escolha sólida para quem procura um veículo que atenda tanto às necessidades diárias na cidade quanto às aventuras fora do asfalto.
                 </p>
+            </div>
+        </div>
+    </div>
+    <div class="container itens-car" style="width: 1300px; height: auto;">
+        <h1> Itens do carro </h1>
+        <div class="row">
+            <div class="col-md-4">
+                <p>Alarme</p>
+                <p>Ar condicionado</p>
+            </div>
+            <div class="col-md-4">
+                <p>Vidros elétricos</p>
+                <p>Travas elétricas</p>
+            </div>
+            <div class="col-md-4">
+                <p>Direção hidráulica</p>
+                <p>Chaveiro personalizado</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+@{
+    Layout = "_LayoutDeslogada";
+    ViewData["Title"] = "Audi TT";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <style>
+
+        header {
+            background-color: #D3D3D3; /* Cor de fundo do header */
+        }
+
+        .navbar-nav .nav-link {
+            color: blue; /* Cor do texto no header */
+            transition: color 0.3s; /* Transição suave de cor ao passar o mouse */
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: gray; /* Cor do texto no header quando o mouse está sobre ele */
+            }
+
+        .btn-primary {
+            background-color: white; /* Define o fundo do botão como branco */
+            color: blue; /* Define a cor do texto do botão como azul */
+            border: 1px solid blue; /* Adiciona uma borda azul de 1px ao botão */
+            transition: background-color 0.3s, color 0.3s, border 0.3s; /* Adiciona transições suaves para as mudanças de cor e borda */
+            margin-left: 500px;
+        }
+
+            .btn-primary:hover {
+                background-color: blue; /* Define a cor de fundo do botão quando o mouse está sobre ele como azul */
+                color: white; /* Define a cor do texto como branco quando o mouse está sobre o botão */
+                border: 1px solid white; /* Define a borda como branca quando o mouse está sobre o botão */
+            }
+
+        /* Estilo para centralizar imagens dos carros no carousel */
+        #car-image-carousel img {
+            display: block;
+            margin: 0 auto;
+            height: 500px;
+            border-radius: 15px;
+        }
+
+        /* Estilo para centralizar o título "Detalhes do Carro" e deixá-lo em negrito */
+        .container.car-details h3 {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
+            color: black;
+            margin-top: 10px;
+        }
+
+        .container.itens-car h1 {
+            font-size: 20px;
+            text-align: left;
+            font-weight: bold;
+            font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
+        }
+
+        /* Estilo para os parágrafos com detalhes do carro (alinhados à esquerda) */
+        .container.car-details p {
+            font-size: 18px;
+            text-align: left;
+            font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
+        }
+
+            /* Estilo para os parágrafos com a marca e modelo (negrito) */
+            .container.car-details p strong {
+                font-weight: bold;
+                color: #333;
+                font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
+            }
+
+        .container.itens-car p {
+            font-size: 18px;
+            text-align: left;
+            font-family: Poppins, sans-serif;
+        }
+
+            .container.itens-car p strong {
+                font-weight: bold;
+                color: #333;
+                font-family: Poppins, sans-serif; /* Altere a fonte conforme desejado */
+            }
+
+        .container.itens-car h1 {
+            color: black;
+            margin-top: 10px;
+        }
+
+        .container.car-details {
+            text-align: left;
+            width: 70%; /* Ajuste a largura conforme desejado */
+            margin: 0 auto;
+            background-color: #DCDCDC;
+            border-radius: 10px;
+        }
+
+            .container.car-details p {
+                color: gray;
+            }
+
+        .container.itens-car {
+            text-align: left;
+            width: 70%; /* Ajuste a largura conforme desejado */
+            margin: 0 auto;
+            background-color: #DCDCDC;
+            border-radius: 10px;
+        }
+
+            .container.itens-car p {
+                color: gray;
+            }
+
+        /* Estilo para botões de controle do carrossel em preto */
+        .carousel-control-prev,
+        .carousel-control-next {
+            background-color: transparent; /* Remove o fundo */
+            border: none; /* Remove a borda */
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #000; /* Cor preta para a parte da seta */
+            color: #fff; /* Cor do ícone (se necessário) */
+        }
+
+        .sr-only {
+            background-color: transparent; /* Remove o fundo do texto de acessibilidade */
+        }
+
+        .description {
+            margin-top: 10px;
+        }
+
+    </style>
+    <title>Detalhes do Carro</title>
+</head>
+<body>
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> </a>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>
+                        <a class="nav-link text-dark" asp-area="Index" asp-controller="Home" asp-action="">Loca<strong style="color: blue;">Facil</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">CadastrarVeículo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Ajuda">Ajuda</a>
+                    </li>
+                </ul>
+                <a class="btn btn-primary" asp-action="index" asp-controller="Login">Entrar</a>
+            </div>
+        </nav>
+    </header>
+    <hr />
+
+    <!-- Carrossel de imagens -->
+    <div id="car-image-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/jeep-renegade_imagem-removebg-preview.png" alt="Carro 1">
+            </div>
+            <div class="carousel-item">
+                <img src="~/rene_traseira2-removebg-preview.png" alt="Carro 2">
+            </div>
+            <div class="carousel-item">
+                <img src="~/rene_interna.jpg" alt="Carro 3">
+            </div>
+        </div>
+
+        <!-- Botões de controle personalizados -->
+        <a class="carousel-control-prev" href="#car-image-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#car-image-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" ariahidden="true"></span>
+            <span class="sr-only">Próximo</span>
+        </a>
+    </div>
+
+    <!-- Detalhes do Carro -->
+    <div class="container car-details" style="width: 1300px; height: auto;">
+        <h3>Detalhes do Carro</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong style="color:black">Marca:</strong> Jeep</p>
+                <p><strong style="color:black">Modelo:</strong> Renegade</p>
+                <p><strong style="color:black">KM:</strong> 100.000</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong style="color:black">Cor:</strong> Laranja</p>
+                <p><strong style="color:black">Ano:</strong> 2022</p>
+                <p><strong style="color:black">Transmissão:</strong> Automático</p>
+            </div>
+            <div class="description">
+                <hr />
+                <strong style="color:black">Descrição</strong>
+                <p>
+                    O Jeep Renegade é um SUV compacto que combina versatilidade, tecnologia, conforto e um tamanho ideal para aventuras urbanas e off-road.
+                    O motor do Jeep Renegade oferece opções que incluem motores a gasolina e diesel, com destaque para os motores turboalimentados de 1.3 litros que proporcionam um equilíbrio entre desempenho e eficiência de combustível.
+                    O Renegade também é conhecido por sua capacidade de tração nas quatro rodas, tornando-o apto para off-road leve.
+                    Em termos de tecnologia, o Renegade possui recursos avançados, como uma tela sensível ao toque com sistemas de infotainment modernos, conectividade Apple CarPlay e Android Auto, além de opções de assistência ao motorista, como controle de cruzeiro adaptativo e alerta de colisão.
+                    O conforto no Renegade é destacado por seus assentos espaçosos e bem projetados, juntamente com um interior de alta qualidade e materiais atraentes.
+                    O espaço interno é suficiente para acomodar cinco passageiros com conforto, e o SUV oferece amplo espaço de carga.
+                    O tamanho do Jeep Renegade o coloca na categoria de SUVs compactos, o que o torna ágil para a condução urbana e fácil de estacionar, mas ainda oferece um interior espaçoso o suficiente para viagens em família e aventuras fora da estrada.
+                    Em resumo, o Jeep Renegade é um SUV compacto que combina um motor eficiente, tecnologia avançada, conforto e um tamanho versátil, tornando-o uma escolha sólida para quem procura um veículo que atenda tanto às necessidades diárias na cidade quanto às aventuras fora do asfalto.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container itens-car" style="width: 1300px; height: auto;">
+        <h1> Itens do carro </h1>
+        <div class="row">
+            <div class="col-md-4">
+                <p>Alarme</p>
+                <p>Ar condicionado</p>
+            </div>
+            <div class="col-md-4">
+                <p>Vidros elétricos</p>
+                <p>Travas elétricas</p>
+            </div>
+            <div class="col-md-4">
+                <p>Direção hidráulica</p>
+                <p>Chaveiro personalizado</p>
             </div>
         </div>
     </div>
