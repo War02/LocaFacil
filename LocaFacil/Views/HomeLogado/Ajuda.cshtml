@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #D3D3D3; /* Cor de fundo do header */
+        }
+
+        .navbar-nav .nav-link {
+            color: blue; /* Cor do texto no header */
+            transition: color 0.3s; /* Transição suave de cor ao passar o mouse */
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: gray; /* Cor do texto no header quando o mouse está sobre ele */
+            }
+
+        .btn-primary {
+            background-color: white; /* Define o fundo do botão como branco */
+            color: blue; /* Define a cor do texto do botão como azul */
+            border: 1px solid blue; /* Adiciona uma borda azul de 1px ao botão */
+            transition: background-color 0.3s, color 0.3s, border 0.3s; /* Adiciona transições suaves para as mudanças de cor e borda */
+            margin-left: 500px;
+        }
+
+            .btn-primary:hover {
+                background-color: blue; /* Define a cor de fundo do botão quando o mouse está sobre ele como azul */
+                color: white; /* Define a cor do texto como branco quando o mouse está sobre o botão */
+                border: 1px solid white; /* Define a borda como branca quando o mouse está sobre o botão */
+            }
+
+        .container {
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .faq {
+            margin-top: 20px;
+            text-align: center; /* Centraliza o conteúdo horizontalmente */
+        }
+
+        .question {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        h2 {
+            color: blue;
+        }
+
+        .btn-secundary {
+            width: 100px;
+            margin: 0 auto; /* Centraliza o botão horizontalmente */
+            display: block;
+            color: white;
+            background-color: blue; /* Adicione cor de fundo azul ao botão */
+        }
+
+            .btn-secundary:hover {
+                background-color: blue; /* Define a cor de fundo do botão quando o mouse está sobre ele como azul */
+                color: #d3d3d3; /* Define a cor do texto como branco quando o mouse está sobre o botão */
+                border: 1px solid white; /* Define a borda como branca quando o mouse está sobre o botão */
+            }
+
+        .answer {
+            display: none;
+        }
+
+            .answer.active {
+                display: block;
+            }
+
+    </style>
+    <title>Ajuda - LocaFacil</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>
+                        <a class="nav-link text-dark" asp-area="Index" asp-controller="HomeLogado" asp-action="">Loca<strong style="color: blue;">Facil</strong></a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="HomeLogado" asp-action="Index">Olá, Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Carro" asp-action="Index">CadastrarVeículo</a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="HomeLogado" asp-action="MeuPerfil">Perfil</a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-black" asp-area="" asp-controller="HomeLogado" asp-action="Ajuda">Ajuda</a>
+                    </li>
+                </ul>
+                <a class="btn btn-primary" asp-controller="Login" asp-action="Sair">Sair</a>
+            </div>
+        </nav>
+    </header>
+    <hr />
+    <div class="container">
+        <h1>Perguntas Frequentes</h1>
+        <div class="faq">
+            <div class="question">
+                <h2>Como faço para alugar um carro?</h2>
+                <div class="answer">
+                    <p>Para alugar um carro, basta seguir estes passos:<br>1. Faça login na sua conta ou registre-se.<br>2. Pesquise carros disponíveis.<br>3. Selecione o carro desejado e as datas de aluguel.<br>4. Complete o processo de reserva e pagamento.</p>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Quais são as opções de pagamento?</h2>
+                <div class="answer">
+                    <p>Aceitamos cartões de crédito, débito e transferência bancária como formas de pagamento.</p>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Qual é a política de cancelamento?</h2>
+                <div class="answer">
+                    <p>Nossa política de cancelamento permite o cancelamento gratuito até 24 horas antes do horário de retirada do veículo. Após esse período, pode haver taxas de cancelamento.</p>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Como faço para estender o período de aluguel?</h2>
+                <div class="answer">
+                    <p>Para estender o período de aluguel, entre em contato conosco por telefone ou por e-mail. Teremos o prazer de ajudá-lo a estender seu aluguel, sujeito à disponibilidade do veículo.</p>
+                </div>
+            </div>
+            <a class="btn btn-secundary" asp-action="Index" asp-controller="HomeLogado" role="button">Voltar</a>
+        </div>
+    </div>
+    <script>
+        const questions = document.querySelectorAll('.question');
+
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                question.querySelector('.answer').classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
+
