@@ -240,9 +240,43 @@
             </div>
         </div>
     </div>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#agendamentoModal">Agendar</button>
+    <div class="modal fade" id="agendamentoModal" tabindex="-1" role="dialog" aria-labelledby="agendamentoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="agendamentoModalLabel">Agendamento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="dataHora">Data e Hora:</label>
+                        <div class="input-group date" id="dataHoraPicker" data-target-input="nearest">
+                            <input type="text" id="dataHora" name="dataHora" class="form-control datetimepicker-input" data-target="#dataHoraPicker" required>
+                            <div class="input-group-append" data-target="#dataHoraPicker" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" id="confirmarAgendamento">Confirmar Agendamento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('#dataHoraPicker').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm:ss',
+            });
+        });
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
-
