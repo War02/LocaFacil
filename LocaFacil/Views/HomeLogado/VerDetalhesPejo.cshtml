@@ -153,16 +153,22 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li>
-                        <a class="nav-link text-dark" asp-area="Index" asp-controller="Home" asp-action="">Loca<strong style="color: blue;">Facil</strong></a>
+                        <a class="nav-link text-dark" asp-area="Index" asp-controller="HomeLogado" asp-action="">Loca<strong style="color: blue;">Facil</strong></a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="HomeLogado" asp-action="Index">Olá, Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">CadastrarVeículo</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Carro" asp-action="Index">CadastrarVeículo</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Ajuda">Ajuda</a>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="HomeLogado" asp-action="MeuPerfil">Perfil</a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-black" asp-area="" asp-controller="HomeLogado" asp-action="Ajuda">Ajuda</a>
                     </li>
                 </ul>
-                <a class="btn btn-primary" asp-action="index" asp-controller="Login">Entrar</a>
+                <a class="btn btn-primary" asp-controller="Login" asp-action="Sair">Sair</a>
             </div>
         </nav>
     </header>
