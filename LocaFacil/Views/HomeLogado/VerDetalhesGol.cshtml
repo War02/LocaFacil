@@ -265,14 +265,41 @@
         </div>
     </div>
 
-    <button onclick="redirectToWhatsApp()">Agendar</button>
+    <div class="container agendamento" style="width: 400px; margin-top: 20px;">
+        <h3>Agendar</h3>
+        <form id="agendamentoForm">
+            <div class="form-group">
+                <label for="data">Data:</label>
+                <input type="date" class="form-control" id="data" required>
+            </div>
+            <div class="form-group">
+                <label for="hora">Hora:</label>
+                <input type="time" class="form-control" id="hora" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Agendar</button>
+        </form>
+    </div>
 
     <script>
-        function redirectToWhatsApp() {
+        document.getElementById("agendamentoForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Impede o envio do formulário tradicional
+
             var numeroWhatsApp = '16991277079';
-            var urlWhatsApp = 'https://wa.me/' + numeroWhatsApp;
+            var data = document.getElementById("data").value;
+            var hora = document.getElementById("hora").value;
+
+            // Construa a mensagem com as informações do formulário
+            var mensagem = "Agendamento de visita:\nData: " + data + "\nHora: " + hora;
+
+            // Codifique a mensagem para uso na URL
+            var mensagemEncoded = encodeURIComponent(mensagem);
+
+            // Crie o link do WhatsApp com a mensagem
+            var urlWhatsApp = 'https://wa.me/' + numeroWhatsApp + '?text=' + mensagemEncoded;
+
+            // Redirecione para o link do WhatsApp
             window.location.href = urlWhatsApp;
-        }
+        });
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
