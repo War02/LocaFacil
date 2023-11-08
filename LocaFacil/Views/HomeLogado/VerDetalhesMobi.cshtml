@@ -139,6 +139,21 @@
             margin-top: 10px;
         }
 
+        button {
+            background-color: transparent;
+            color: blue;
+            border: 2px solid blue;
+            padding: 10px 20px;
+            margin-top: 10px;
+            margin-left: 50%;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+            button:hover {
+                background-color: blue;
+                color: white;
+            }
     </style>
     <title>Detalhes do Carro</title>
 </head>
@@ -245,51 +260,15 @@
             </div>
         </div>
     </div>
-    <!-- Botão de Agendamento -->
-    <button class="btn btn-primary" data-toggle="modal" data-target="#agendamentoModal" style="margin-top:10px" ;>Agendar</button>
-
-    <!-- Modal de Agendamento -->
-    <div class="modal fade" id="agendamentoModal" tabindex="-1" role="dialog" aria-labelledby="agendamentoModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-center my-0" id="agendamentoModalLabel">Agendamento</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="agendamentoForm">
-                        <div class="form-group">
-                            <label for="data">Data:</label>
-                            <input type="date" id="data" name="data" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="horario">Horário:</label>
-                            <input type="time" id="horario" name="horario" class="form-control" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="confirmarAgendamento">Confirmar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
+    <button onclick="redirectToWhatsApp()">Agendar</button>
 
     <script>
-        // Tratar o evento de confirmação de agendamento
-        document.getElementById("confirmarAgendamento").addEventListener("click", function () {
-            // Obter a data e horário dos campos
-            var data = document.getElementById("data").value;
-            var horario = document.getElementById("horario").value;
-
-            // Realizar a lógica de agendamento aqui
-            // Envie os dados para o servidor ou faça o que for necessário
-
-            // Fechar o modal após o agendamento
-            $('#agendamentoModal').modal('hide');
-        });
+        function redirectToWhatsApp() {
+            var numeroWhatsApp = '16991277079';
+            var urlWhatsApp = 'https://wa.me/' + numeroWhatsApp;
+            window.location.href = urlWhatsApp;
+        }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
